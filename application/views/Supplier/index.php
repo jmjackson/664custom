@@ -1,7 +1,7 @@
 <div class="content">
   <div class="row">
     <div class="container col-md-12 mb-3">
-      <button type="button" name="button" class="btn btn-outline-default btn-sm" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" name="button" class="btn btn-outline-default btn-sm" data-toggle="modal" data-target="#SupplierModal">
         <i class="fa fa-plus"></i>
         Proveedor
       </button>
@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="SupplierModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
