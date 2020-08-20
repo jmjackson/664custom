@@ -6,17 +6,13 @@ class Car extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-<<<<<<< HEAD
-    //Codeigniter : Write Less Do Mor
+
       $this->load->model(array('Car_model'));
-=======
-    //Codeigniter : Write Less Do More
->>>>>>> Palos
   }
 
   function index()
   {
-<<<<<<< HEAD
+
     $datos = array('title' =>"Autos" , );
     $data = array('Car' =>$this->Car_model->GetCar());
     $this->load->view('Layouts/head',$datos);
@@ -42,16 +38,14 @@ class Car extends CI_Controller{
     'Model'=>$model,
     'Color'=>$color,
     'Notes'=>$note);
-    if ($this->Cars_model->AddCar($data)) {
+
+    if ($this->Car_model->AddCar($data)) {
       redirect(base_url().'Car');
     }
     else {
       echo "Hubo un error";
     }
   }
-=======
-    
-  }
 
->>>>>>> Palos
+
 }
