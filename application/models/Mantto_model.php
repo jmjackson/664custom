@@ -42,7 +42,7 @@ class Mantto_model extends CI_Model{
 
   public function GetLasRecord()
   {
-    $this->db->select('Mantto')->ORDER_BY('Folio',"desc"->limit(1));
+    $this->db->select('Mantto.*')->ORDER_BY('Id',"desc")->limit(1);
     $this->db->from('Mantto');
     $datos=$this->db->get()->row();
 
