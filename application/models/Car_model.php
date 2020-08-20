@@ -20,4 +20,8 @@ class Car_model extends CI_Model{
 
   }
 
+  public function Addcar($datos){
+
+  }
+
 }
