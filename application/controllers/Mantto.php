@@ -1,7 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
 class Mantto extends CI_Controller{
+
 
   public function __construct()
   {
@@ -89,6 +92,7 @@ class Mantto extends CI_Controller{
     else{
       echo "Error al Eliminar sus datos";
     }
+>>>>>>> master
   }
 
   public function details($id)

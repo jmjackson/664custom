@@ -45,6 +45,8 @@ class Supplier extends CI_Controller{
 
   public function edit($id='')
   {
+
+
     $data = array('title' =>"Actualizar Proveedor" , );
     $datos = array('supplier' =>$this->Supplier_model->GetSupplierId($id) , );
     $this->load->view('Layouts/head', $data);
