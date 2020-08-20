@@ -6,12 +6,17 @@ class Car extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
+<<<<<<< HEAD
     //Codeigniter : Write Less Do Mor
       $this->load->model(array('Car_model'));
+=======
+    //Codeigniter : Write Less Do More
+>>>>>>> Palos
   }
 
   function index()
   {
+<<<<<<< HEAD
     $datos = array('title' =>"Autos" , );
     $data = array('Car' =>$this->Car_model->GetCar());
     $this->load->view('Layouts/head',$datos);
@@ -44,4 +49,9 @@ class Car extends CI_Controller{
       echo "Hubo un error";
     }
   }
+=======
+    
+  }
+
+>>>>>>> Palos
 }
