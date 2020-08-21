@@ -19,7 +19,7 @@
                     <td>Folio</td>
                     <td>Nombre</td>
                     <td>Celular</td>
-                    <td>Accion</td>
+                    <td>Acción</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,14 +59,7 @@
         </div>
           <div class="modal-body">
             <form action="<?php echo base_url(); ?>Mantto/create" method="post">
-              <div class="row">
-                <div class="col-md-12 pr-2">
-                  <div class="form-group">
-                    <label>Folio</label>
-                    <input type="text" name="Folio" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
+              <input type="hidden" name="Folio" class="form-control" value="<?php echo $folio; ?>" readonly>
               <div class="row">
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
