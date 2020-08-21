@@ -92,7 +92,16 @@ class Mantto extends CI_Controller{
     else{
       echo "Error al Eliminar sus datos";
     }
+  }
 
+  public function details($id)
+  {
+    $datos = array('title' =>"Detalle de Recibo" , );
+    $data = array('mantto' =>$this->Mantto_model->GetManttoId($id) , );
+
+    $this->load->view('Layouts/head', $datos);
+    $this->load->view('Mantto/details', $data);
+    $this->load->view('Layouts/footer');
   }
 
 }
