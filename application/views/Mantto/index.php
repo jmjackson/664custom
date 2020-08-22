@@ -19,7 +19,7 @@
                     <td>Folio</td>
                     <td>Nombre</td>
                     <td>Celular</td>
-                    <td>Accion</td>
+                    <td>Acción</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,7 +29,7 @@
                       <td><?php echo $si->Name; ?></td>
                       <td><?php echo $si->Cellphone; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>Mantto/visualize/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-primary btn-icon"><i class="fas fa-eye"></i> </a>
+                        <a href="<?php echo base_url(); ?>Mantto/details/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-primary btn-icon"><i class="fas fa-eye"></i> </a>
                         <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon"><i class="fas fa-pencil-alt"></i> </a>
                         <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon"><i class="fas fa-trash-alt"></i> </a>
                       </td>
@@ -59,14 +59,7 @@
         </div>
           <div class="modal-body">
             <form action="<?php echo base_url(); ?>Mantto/create" method="post">
-              <div class="row">
-                <div class="col-md-12 pr-2">
-                  <div class="form-group">
-                    <label>Folio</label>
-                    <input type="text" name="Folio" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
+              <input type="hidden" name="Folio" class="form-control" value="<?php echo $folio; ?>" readonly>
               <div class="row">
                 <div class="col-md-6 pr-1">
                   <div class="form-group">

@@ -15,28 +15,17 @@ class Mantto extends CI_Controller{
 
   function index()
   {
-    //Prueba 1
-    // $Folio=$this->Mantto_model->GetLasRecord();
-    // $max=0; $temp=0;
-    // if ($i=0; $i < count($Folio); $i++) {
-    //   $temp=$Folio[$i]->Mantto_model;
-    //   if ($temp>$max) {
-    //     $max=$temp;
-    //   }
-    // }
-
-    //Intento 2
-    // $Count=0;
-    // $last=$this->Mantto_model->GetLasRecord();
-    // if ($last->$Folio===null or $last->$Folio=='pendiente') {
-    //   $Count=1;
-    // }
-    // $foliocurrent=$last;
-    //
-    // $foli= array('Folio' =>$this->Mantto_model->GetLasRecord(),'Folio' =>$foliocurrent,'pendiente'=>$count,);
+    $folio=0;
+    $last=$this->Mantto_model->GetLasRecord();
+    if ($last==null) {
+       $folio=1;
+    }
+    else {
+      $folio=$last->Folio+1;
+    }
 
     $datos = array('title' => "Recibo");
-    $data = array('mantto' =>$this->Mantto_model->GetMantto());
+    $data = array('mantto' =>$this->Mantto_model->GetMantto(),'folio'=>$folio);
     $this->load->view('Layouts/head',$datos);
     $this->load->view('Mantto/index',$data);
     $this->load->view('Layouts/footer');
@@ -57,13 +46,6 @@ class Mantto extends CI_Controller{
     } catch (\Exception $e) {
 
     }
-
-    // if (//$this->Mantto_model->AddMantto($data)) {
-    //   redirect(base_url().'Car/create/'.Id);
-    // }
-    // else {
-    //   echo "Hubo un error";
-    // }
   }
   public function edit($id='')
   {
@@ -110,6 +92,16 @@ class Mantto extends CI_Controller{
     else{
       echo "Error al Eliminar sus datos";
     }
+  }
+
+  public function details($id)
+  {
+    $datos = array('title' =>"Detalle de Recibo" , );
+    $data = array('mantto' =>$this->Mantto_model->GetManttoId($id) , );
+
+    $this->load->view('Layouts/head', $datos);
+    $this->load->view('Mantto/details', $data);
+    $this->load->view('Layouts/footer');
   }
 
 }
