@@ -22,8 +22,9 @@ class Car extends CI_Controller{
   public function create($id='')
   {
     $datos = array('title' =>"Detalles de recibo" , );
+    $data = array('manttoid' => $id , );
     $this->load->view('Layouts/head', $datos);
-    $this->load->view('Car/create');
+    $this->load->view('Car/create',$data );
     $this->load->view('Layouts/footer');
 
   }
