@@ -15,6 +15,16 @@ class Mantto extends CI_Controller{
 
   function index()
   {
+
+    $datos = array('title' => "Recibo");
+    $data = array('mantto' =>$this->Mantto_model->GetMantto(), );
+    $this->load->view('Layouts/head',$datos);
+    $this->load->view('Mantto/index',$data);
+    $this->load->view('Layouts/footer');
+  }
+
+  public function create()
+  {
     $folio=0;
     $last=$this->Mantto_model->GetLasRecord();
     if ($last==null) {
@@ -23,14 +33,14 @@ class Mantto extends CI_Controller{
     else {
       $folio=$last->Folio+1;
     }
-
-    $datos = array('title' => "Recibo");
-    $data = array('mantto' =>$this->Mantto_model->GetMantto(),'folio'=>$folio);
-    $this->load->view('Layouts/head',$datos);
-    $this->load->view('Mantto/index',$data);
+    $data = array('folio'=>$folio);
+    $datos = array('title' => "Nuevo Recibo", );
+    $this->load->view('Layouts/head', $datos);
+    $this->load->view('Mantto/create',$data);
     $this->load->view('Layouts/footer');
   }
-  public function create()
+
+  public function addMantto()
   {
     $data = array('Folio' =>$this->input->post('Folio'),
     'Name' =>$this->input->post('Name'),
@@ -39,12 +49,14 @@ class Mantto extends CI_Controller{
     'Zip' =>$this->input->post('Zip'),
     'Email'=>$this->input->post('Email'),
     'Telefono'=>$this->input->post('Telefono'),
-    'Cellphone'=>$this->input->post('Cellphone'));
+    'Cellphone'=>$this->input->post('Cellphone'),
+    'DateMantto'=>$this->input->post('DateMantto'),
+  );
     try {
         $f=$this->Mantto_model->AddMantto($data);
         redirect(base_url()."Car/create/".$f);
     } catch (\Exception $e) {
-
+      echo "tienes un error";
     }
   }
   public function edit($id='')
