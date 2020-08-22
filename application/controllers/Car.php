@@ -7,7 +7,7 @@ class Car extends CI_Controller{
   {
     parent::__construct();
 
-      $this->load->model(array('Car_model'));
+      $this->load->model(array('Car_model','Mantto_model'));
   }
 
   function index()
@@ -22,7 +22,7 @@ class Car extends CI_Controller{
   public function create($id='')
   {
     $datos = array('title' =>"Detalles de recibo" , );
-    $data = array('manttoid' => $id , );
+    $data = array('manttoid' => $id , 'fila' =>$this->Mantto_model->GetManttoId($id) );
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Car/create',$data );
     $this->load->view('Layouts/footer');
@@ -66,7 +66,6 @@ class Car extends CI_Controller{
   }
   public function addcar()
   {
-    $id=$this->input->post('Id');
     $plate=$this->input->post('Plate');
     $year=$this->input->post('Year');
     $make=$this->input->post('Make');
@@ -75,13 +74,14 @@ class Car extends CI_Controller{
     $note=$this->input->post('Notes');
     $manttoid=$this->input->post('ManttoId');
 
-    $data = array('Id' =>$id ,
+    $data = array(
     'Plate'=>$plate,
     'Year'=>$year,
     'Make'=>$make,
     'Model'=>$model,
     'Color'=>$color,
-    'Notes'=>$note);
+    'Notes'=>$note,
+    'ManttoId'=>$manttoid);
 
     if ($this->Car_model->AddCar($data)) {
       redirect(base_url().'Car');

@@ -21,7 +21,7 @@ class Car_model extends CI_Model{
   }
 
   public function Addcar($datos){
-
+    return $this->db->insert('Car', $datos);
 
   }
   public function UpdateCar($id,$datos)
