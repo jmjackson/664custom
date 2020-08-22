@@ -29,7 +29,6 @@
                       <td><?php echo $s->Make; ?></td>
                       <td><?php echo $s->Color; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>Car/edit/<?php echo $s->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon"><i class="fas fa-pencil-alt"></i> </a>
                         <a href="<?php echo base_url(); ?>Car/details/<?php echo $s->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon"><i class="fa fa-eye"></i> </a>
                       </td>
                     </tr>
