@@ -19,15 +19,7 @@ class Car extends CI_Controller{
     $this->load->view('Car/index',$data);
     $this->load->view('Layouts/footer');
   }
-  public function create($id='')
-  {
-    $datos = array('title' =>"Detalles de recibo" , );
-    $data = array('manttoid' => $id , 'fila' =>$this->Mantto_model->GetManttoId($id) );
-    $this->load->view('Layouts/head', $datos);
-    $this->load->view('Car/create',$data );
-    $this->load->view('Layouts/footer');
 
-  }
   public function details($id)
   {
     $datos = array('title' =>"Detalle del auto" , );
@@ -64,34 +56,4 @@ class Car extends CI_Controller{
           echo "Error en su Actualizacion de datos";
         }
   }
-  public function addcar()
-  {
-    $plate=$this->input->post('Plate');
-    $year=$this->input->post('Year');
-    $make=$this->input->post('Make');
-    $model=$this->input->post('Model');
-    $color=$this->input->post('Color');
-    $note=$this->input->post('Notes');
-    $manttoid=$this->input->post('ManttoId');
-
-    $data = array(
-    'Plate'=>$plate,
-    'Year'=>$year,
-    'Make'=>$make,
-    'Model'=>$model,
-    'Color'=>$color,
-    'Notes'=>$note,
-    'ManttoId'=>$manttoid);
-
-    if ($this->Car_model->AddCar($data)) {
-      redirect(base_url().'Car');
-    }
-    else {
-      echo "Hubo un error";
-    }
-
-  }
-
-
-
 }

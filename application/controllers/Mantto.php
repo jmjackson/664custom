@@ -10,7 +10,7 @@ class Mantto extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mantto_model'));
+    $this->load->model(array('Mantto_model','Car_model'));
   }
 
   function index()
@@ -52,12 +52,35 @@ class Mantto extends CI_Controller{
     'Cellphone'=>$this->input->post('Cellphone'),
     'DateMantto'=>$this->input->post('DateMantto'),
   );
-    try {
+    $manttoid=$this->Mantto_model->AddMantto($data);
+
+    if ($manttoid>0) {
+      $dataCar = array(
+        'Plate' =>$this->input->post('Plate'),
+        'Make'=>$this->input->post('Make'),
+        'Model'=>$this->input->post('Model'),
+        'Color'=>$this->input->post('Color'),
+        'Notes'=>$this->input->post('Notes'),
+        'ManttoId'=>$manttoid
+        );
+
+    }
+    else {
+      echo "No se cargaron los archivos";
+    }
+    if ($this->Car_model->AddCar($dataCar)) {
+      redirect(base_url().'ManttoDetails/addDetails/'.$manttoid);
+    }
+    else {
+      echo "Hubo un error";
+    }
+
+    /*try {
         $f=$this->Mantto_model->AddMantto($data);
         redirect(base_url()."Car/create/".$f);
     } catch (\Exception $e) {
       echo "tienes un error";
-    }
+    }*/
   }
   public function edit($id='')
   {
