@@ -29,9 +29,6 @@
         </a>
         <a href="<?php echo base_url(); ?>" class="simple-text logo-normal">
           664CUSTOM
-          <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-          </div> -->
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -44,7 +41,7 @@
           </li>
           <li>
             <a href="<?php echo base_url(); ?>Reportes">
-              <i class="nc-icon nc-diamond"></i>
+              <i class="nc-icon nc-paper"></i>
               <p>Reportes</p>
             </a>
           </li>

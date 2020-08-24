@@ -10,10 +10,20 @@ class Mantto extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mantto_model'));
+    $this->load->model(array('Mantto_model','Car_model'));
   }
 
   function index()
+  {
+
+    $datos = array('title' => "Recibo");
+    $data = array('mantto' =>$this->Mantto_model->GetMantto(), );
+    $this->load->view('Layouts/head',$datos);
+    $this->load->view('Mantto/index',$data);
+    $this->load->view('Layouts/footer');
+  }
+
+  public function create()
   {
     $folio=0;
     $last=$this->Mantto_model->GetLasRecord();
@@ -23,14 +33,14 @@ class Mantto extends CI_Controller{
     else {
       $folio=$last->Folio+1;
     }
-
-    $datos = array('title' => "Recibo");
-    $data = array('mantto' =>$this->Mantto_model->GetMantto(),'folio'=>$folio);
-    $this->load->view('Layouts/head',$datos);
-    $this->load->view('Mantto/index',$data);
+    $data = array('folio'=>$folio);
+    $datos = array('title' => "Nuevo Recibo", );
+    $this->load->view('Layouts/head', $datos);
+    $this->load->view('Mantto/create',$data);
     $this->load->view('Layouts/footer');
   }
-  public function create()
+
+  public function addMantto()
   {
     $data = array('Folio' =>$this->input->post('Folio'),
     'Name' =>$this->input->post('Name'),
@@ -39,13 +49,38 @@ class Mantto extends CI_Controller{
     'Zip' =>$this->input->post('Zip'),
     'Email'=>$this->input->post('Email'),
     'Telefono'=>$this->input->post('Telefono'),
-    'Cellphone'=>$this->input->post('Cellphone'));
-    try {
+    'Cellphone'=>$this->input->post('Cellphone'),
+    'DateMantto'=>$this->input->post('DateMantto'),
+  );
+    $manttoid=$this->Mantto_model->AddMantto($data);
+
+    if ($manttoid>0) {
+      $dataCar = array(
+        'Plate' =>$this->input->post('Plate'),
+        'Make'=>$this->input->post('Make'),
+        'Model'=>$this->input->post('Model'),
+        'Color'=>$this->input->post('Color'),
+        'Notes'=>$this->input->post('Notes'),
+        'ManttoId'=>$manttoid
+        );
+
+    }
+    else {
+      echo "No se cargaron los archivos";
+    }
+    if ($this->Car_model->AddCar($dataCar)) {
+      redirect(base_url().'ManttoDetails/addDetails/'.$manttoid);
+    }
+    else {
+      echo "Hubo un error";
+    }
+
+    /*try {
         $f=$this->Mantto_model->AddMantto($data);
         redirect(base_url()."Car/create/".$f);
     } catch (\Exception $e) {
-
-    }
+      echo "tienes un error";
+    }*/
   }
   public function edit($id='')
   {
