@@ -92,7 +92,6 @@ class Mantto extends CI_Controller{
     else{
       echo "Error al Eliminar sus datos";
     }
->>>>>>> master
   }
 
   public function details($id)

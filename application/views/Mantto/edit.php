@@ -6,6 +6,14 @@
         <div class="row">
           <div class="col-md-6 px-1">
             <div class="form-group">
+              <label>Folio</label>
+              <input type="text" name="Folio" class="form-control"  value="<?php echo $mantto->Folio; ?>"readonly>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 px-1">
+            <div class="form-group">
               <label>Nombre</label>
               <input type="text" name="Name" class="form-control"  value="<?php echo $mantto->Name; ?>">
             </div>
