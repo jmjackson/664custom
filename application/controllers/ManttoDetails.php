@@ -9,10 +9,7 @@ class ManttoDetails extends CI_Controller{
     //Codeigniter : Write Less Do More
   }
 
-  function index()
-  {
-
-  }
+  
 
   public function addDetails($id='')
   {
