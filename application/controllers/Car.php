@@ -23,7 +23,9 @@ class Car extends CI_Controller{
   public function details($id)
   {
     $datos = array('title' =>"Detalle del auto" , );
-    $data = array('car' =>$this->Car_model->GetCarId($id) ,'service' =>$this->Service_model->GetServicebyId($id) );
+    $data = array(
+      'Car' =>$this->Car_model->GetCarId($id),
+      'Mantto' =>$this->Mantto_model->GetManttoId($id));
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Car/details', $data);
     $this->load->view('Layouts/footer');

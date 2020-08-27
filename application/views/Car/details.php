@@ -1,138 +1,100 @@
 <div class="content">
   <div class="row">
     <div class="col-md-12">
-      <div class="form-horizontal px-3">
-        <form action="<?php echo base_url(); ?>Car/details" method="post">
+      <div class="card">
+        <div class="card-header">
           <div class="row justify-content-around">
-            <div class="col-md-5 col-sm-12 border m-1">
-              <h5 class="text-center m-0">Datos Cliente</h5>
-              <div class="row">
-                <div class="col-md-6 col-md-12">
-                  <div class="row">
-                    <div class="col-md-6 px-3">
-                      <div class="form-group">
-                        <label>ID</label>
-                          <input type="text" name="Id" class="form-control"  value="<?php echo $car->Id; ?>"readonly>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Placa</label>
-                          <input type="text" name="Plate" class="form-control" value="<?php echo $car->Plate; ?>" readonly>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 px-3">
-                      <div class="form-group">
-                        <label>Año</label>
-                          <input type="text" name="Year" class="form-control"  value="<?php echo $car->Year; ?>">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Fabricante</label>
-                          <input type="text" name="Make" class="form-control" value="<?php echo $car->Make; ?>">
-                      </div>
-                    </div>
-                  </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-dark">
+                  <h6 class="text-center text-white">Informacion del Auto</h6>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>Modelo</label>
-                    <input type="text" name="Model" class="form-control" placeholder="" value="<?php echo $car->Model; ?>">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Color</label>
-                    <input type="text" name="Color" class="form-control" placeholder="" value="<?php echo $car->Color; ?>">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Codigo Postal</label>
-                    <input type="text" name="Zip" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Telefono</label>
-                    <input type="text" name="Telefono" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Celular</label>
-                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="">
-                  </div>
+                <div class="card-body">
+                  <table class="table-sm table-borderless">
+                    <tr>
+                      <td>Fecha</td>
+                      <td><?php echo date('d-m-Y'); ?></td>
+                      <td>Folio</td>
+                      <td><?php echo $Mantto->Folio ; ?></td>
+                    </tr>
+                    <?php foreach ($Car as $c): ?>
+                      <tr>
+                        <td><b>Matricula</b></td>
+                        <td><?php echo $c->Plate; ?></td>
+                        <td><b>Año</b></td>
+                        <td><?php echo $c->Year; ?></td>
+                      </tr>
+                      <tr>
+                        <td><b>Fabricante</b></td>
+                        <td><?php echo $c->Make; ?></td>
+                        <td><b>Modelo</b></td>
+                        <td><?php echo $c->Model; ?></td>
+                      </tr>
+                      <tr>
+                        <td><b>Color</b> </td>
+                        <td colspan="3"><?php echo $c->Color; ?></td>
+                      </tr>
+                      <tr>
+                        <td><b>Notas</b> </td>
+                        <td colspan="3"><?php echo $c->Notes; ?>baicfbasigfiuasfujasufhbkasjhfkjashkfjhas</td>
+                      </tr>
+                    <?php endforeach; ?>
+                  </table>
                 </div>
               </div>
             </div>
-            <div class="col-md-5 col-sm-12 border m-1">
-              <h5 class="text-center m-0">Datos de Servicio</h5>
-              <div class="row">
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>ID</label>
-                    <input type="text" name="ID" class="form-control" placeholder="" value="<?php echo $service->Id; ?>" required>
-                  </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-dark">
+                  <h6 class="text-white text-center">Info Recibo</h6>
                 </div>
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Fabricante</label>
-                    <input type="text" name="Make" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Modelo</label>
-                    <input type="text" name="Model" class="form-control" placeholder="" value="" >
-                  </div>
-                </div>
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Color</label>
-                    <input type="text" name="Color" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Año</label>
-                    <input type="text" name="Year" class="form-control" placeholder="" value="" >
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>Notas</label>
-                    <textarea class="form-control textarea" name="Notes"></textarea>
-                  </div>
+                <div class="card-body-">
+                  <table class="table-sm table-borderless">
+                    <tr>
+                      <td>Modelo</td>
+                      <td>xgfxfvccxbgxc</td>
+                      <td>Año</td>
+                      <td>cvbcxbx</td>
+                    </tr>
+                    <tr>
+                      <td>Make</td>
+                      <td>cvbxbxcvb</td>
+                      <td>Model</td>
+                      <td>cvxbcxbxv</td>
+                    </tr>
+                    <tr>
+                      <td>Plate</td>
+                      <td>cxvbxxc</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
-              <div class="row">
-                <div class="update ml-auto mr-auto">
-                  <button type="submit" class="btn btn-outline-secondary btn-round">
-                    <i class="fas fa-plus"></i> Siguiente</button>
-                </div>
-              </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <h5>Servicios</h5>
+            <table class="table table-sm">
+              <tr>
+                <td>Servicio</td>
+                <td>Nombre</td>
+                <td>Hohras</td>
+                <td>Precio</td>
+                <td>Total</td>
+              </tr>
+            </table>
+
+          </div>
+          <hr>
+          <h5>Costos Totales</h5>
+          <p>Total De el Mantenimiento</p>
+          <p>IVA</p>
+
+        </div>
       </div>
     </div>
-
-
-
   </div>
 </div>
