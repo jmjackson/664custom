@@ -7,7 +7,7 @@ class Car extends CI_Controller{
   {
     parent::__construct();
 
-      $this->load->model(array('Car_model','Mantto_model'));
+      $this->load->model(array('Car_model','Mantto_model','Service_model'));
   }
 
   function index()
@@ -23,11 +23,13 @@ class Car extends CI_Controller{
   public function details($id)
   {
     $datos = array('title' =>"Detalle del auto" , );
-    $data = array('car' =>$this->Car_model->GetCarId($id) , );
-
+    $data = array(
+      'Car' =>$this->Car_model->GetCarId($id),
+      'Mantto' =>$this->Mantto_model->GetManttoId($id));
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Car/details', $data);
     $this->load->view('Layouts/footer');
+
   }
   public function edit($id='')
   {
@@ -42,6 +44,7 @@ class Car extends CI_Controller{
   {
     $Id=$this->input->post('Id');
     $datos = array('Plate' =>$this->input->post('Plate'),
+    'Id' =>$this->input->post('Id'),
     'Year' =>$this->input->post('Year'),
     'Make'=>$this->input->post('Make'),
     'Model'=>$this->input->post('Model'),
