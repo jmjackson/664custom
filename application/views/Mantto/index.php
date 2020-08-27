@@ -30,9 +30,7 @@
                       <td><?php echo $si->Name; ?></td>
                       <td><?php echo $si->Cellphone; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>Mantto/details/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-primary btn-icon"><i class="fas fa-eye"></i> </a>
-                        <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon"><i class="fas fa-pencil-alt"></i> </a>
-                        <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon"><i class="fas fa-trash-alt"></i> </a>
+                        <a href="<?php echo base_url(); ?>Mantto/details/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-primary btn-icon" title="Informacion"><i class="fas fa-eye"></i> </a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
