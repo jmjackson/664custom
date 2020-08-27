@@ -17,7 +17,7 @@ class Mantto extends CI_Controller{
   {
 
     $datos = array('title' => "Recibo");
-    $data = array('mantto' =>$this->Mantto_model->GetMantto(), );
+    $data = array('mantto' =>$this->Mantto_model->GetMantto(),'car'=>$this->Car_model->GetCar(), );
     $this->load->view('Layouts/head',$datos);
     $this->load->view('Mantto/index',$data);
     $this->load->view('Layouts/footer');
@@ -61,6 +61,7 @@ class Mantto extends CI_Controller{
         'Model'=>$this->input->post('Model'),
         'Color'=>$this->input->post('Color'),
         'Notes'=>$this->input->post('Notes'),
+        'Year'=>$this->input->post('Year'),
         'ManttoId'=>$manttoid
         );
 
@@ -132,8 +133,7 @@ class Mantto extends CI_Controller{
   public function details($id)
   {
     $datos = array('title' =>"Detalle de Recibo" , );
-    $data = array('mantto' =>$this->Mantto_model->GetManttoId($id) , );
-
+    $data = array('mantto' =>$this->Mantto_model->GetManttoId($id),);
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Mantto/details', $data);
     $this->load->view('Layouts/footer');

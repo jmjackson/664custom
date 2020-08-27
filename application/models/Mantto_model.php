@@ -24,8 +24,14 @@ class Mantto_model extends CI_Model{
 
   public function GetManttoId($id)
   {
-    $this->db->where('Id', $id);
-    return $this->db->get('Mantto')->row();
+    //Esta funcion llama los datos a la base de datos,
+    //Contiene dos join y contiene una lista de o arreglo de datos
+    //El asterisco dice que me voy a traer todos los datos.
+    $this->db->select('m.*,c.Id carId, c.Plate,c.Year,c.Make,c.Model,c.Color,c.Notes');
+    $this->db->from('Mantto m');
+    $this->db->join('Car c', 'm.Id = c.manttoId', 'inner');
+    $this->db->where('m.Id', $id);
+    return $this->db->get()->row();
   }
 
   public function UpdateMantto($id,$datos)
