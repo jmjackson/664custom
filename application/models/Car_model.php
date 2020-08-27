@@ -15,9 +15,11 @@ class Car_model extends CI_Model{
   }
   public function GetCarId($id)
   {
-    $this->db->where('Id', $id);
-
-    return $this->db->get('Car')->row();
+    $this->db->select('c.*,s.Id servicioId,s.Name,s.Description');
+    $this->db->from('car c');
+    $this->db->join('services s','c.Id=s.Id','inner');
+    $this->db->where('c.Id', $id);
+    return $this->db->get()->row();
   }
 
   public function Addcar($datos){
