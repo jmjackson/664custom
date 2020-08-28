@@ -40,7 +40,12 @@ class Mantto_model extends CI_Model{
     return $this->db->update('Mantto', $datos);
   }
 
-  public function Delete($id)
+  public function DeleteMantto($id)
+  {
+    $this->db->where('Id', $id);
+    return  $this->db->delete('Mantto');
+  }
+  public function DeleteCar($id)
   {
     $this->db->where('Id', $id);
     return  $this->db->delete('Mantto');
