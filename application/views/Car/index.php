@@ -22,14 +22,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($Car as $s): ?>
+                  <?php foreach ($Car as $c): ?>
                     <tr>
-                      <td><?php echo $s->ManttoId; ?></td>
-                      <td><?php echo $s->Plate; ?></td>
-                      <td><?php echo $s->Make; ?></td>
-                      <td><?php echo $s->Color; ?></td>
+                      <td><?php echo $c->ManttoId; ?></td>
+                      <td><?php echo $c->Plate; ?></td>
+                      <td><?php echo $c->Make; ?></td>
+                      <td><?php echo $c->Color; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>Car/details/<?php echo $s->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon"><i class="fa fa-eye"></i> </a>
+                        <a href="<?php echo base_url(); ?>Car/details/<?php echo $c->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon"><i class="fa fa-eye"></i> </a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

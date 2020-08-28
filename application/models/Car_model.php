@@ -18,8 +18,8 @@ class Car_model extends CI_Model{
     $this->db->select('c.*,m.Folio,m.Name,');
     $this->db->from('Car c');
     $this->db->join('Mantto m', 'c.ManttoId = m.Id', 'inner');
-    $this->db->where('c.ManttoId', $id);
-    return $this->db->get()->result();
+    $this->db->where('c.Id', $id);
+    return $this->db->get()->row();
   }
 
   public function Addcar($datos){

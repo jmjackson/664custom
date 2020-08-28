@@ -7,67 +7,36 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header bg-dark">
-                  <h6 class="text-center text-white">Informacion del Auto</h6>
+                  <h6 class="text-center text-white"><i class="fas fa-info-circle"></i> Información del Auto</h6>
                 </div>
                 <div class="card-body">
                   <table class="table-sm table-borderless">
                     <tr>
-                      <td>Fecha</td>
+                      <td><b>Fecha</b></td>
                       <td><?php echo date('d-m-Y'); ?></td>
-                      <td>Folio</td>
-                      <td><?php echo $Mantto->Folio ; ?></td>
+                      <td><b>Folio</b></td>
+                      <td><?php echo $Car->Folio ; ?></td>
                     </tr>
-                    <?php foreach ($Car as $c): ?>
                       <tr>
                         <td><b>Matricula</b></td>
-                        <td><?php echo $c->Plate; ?></td>
+                        <td><?php echo $Car->Plate; ?></td>
                         <td><b>Año</b></td>
-                        <td><?php echo $c->Year; ?></td>
+                        <td><?php echo $Car->Year; ?></td>
                       </tr>
                       <tr>
                         <td><b>Fabricante</b></td>
-                        <td><?php echo $c->Make; ?></td>
+                        <td><?php echo $Car->Make; ?></td>
                         <td><b>Modelo</b></td>
-                        <td><?php echo $c->Model; ?></td>
+                        <td><?php echo $Car->Model; ?></td>
                       </tr>
                       <tr>
                         <td><b>Color</b> </td>
-                        <td colspan="3"><?php echo $c->Color; ?></td>
+                        <td colspan="3"><?php echo $Car->Color; ?></td>
                       </tr>
                       <tr>
                         <td><b>Notas</b> </td>
-                        <td colspan="3"><?php echo $c->Notes; ?>baicfbasigfiuasfujasufhbkasjhfkjashkfjhas</td>
+                        <td colspan="3"><?php echo $Car->Notes; ?></td>
                       </tr>
-                    <?php endforeach; ?>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card">
-                <div class="card-header bg-dark">
-                  <h6 class="text-white text-center">Info Recibo</h6>
-                </div>
-                <div class="card-body-">
-                  <table class="table-sm table-borderless">
-                    <tr>
-                      <td>Modelo</td>
-                      <td>xgfxfvccxbgxc</td>
-                      <td>Año</td>
-                      <td>cvbcxbx</td>
-                    </tr>
-                    <tr>
-                      <td>Make</td>
-                      <td>cvbxbxcvb</td>
-                      <td>Model</td>
-                      <td>cvxbcxbxv</td>
-                    </tr>
-                    <tr>
-                      <td>Plate</td>
-                      <td>cxvbxxc</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
                   </table>
                 </div>
               </div>
@@ -86,13 +55,8 @@
                 <td>Total</td>
               </tr>
             </table>
-
           </div>
           <hr>
-          <h5>Costos Totales</h5>
-          <p>Total De el Mantenimiento</p>
-          <p>IVA</p>
-
         </div>
       </div>
     </div>
