@@ -15,7 +15,7 @@
                       <td> <b>Folio</b> </td>
                       <td><?php echo $mantto->Folio; ?></td>
                       <td> <b>Fecha</b> </td>
-                      <td><?php echo date('d-m-y'); ?></td>
+                      <td><?php echo $mantto->DateMantto; ?></td>
                     </tr>
                     <tr>
                       <td> <b>Nombre</b> </td>
@@ -74,8 +74,11 @@
           <div class="row">
             <div class="update ml-auto mr-auto">
               <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon" title="Editar"><i class="fas fa-pencil-alt"></i> </a>
-              <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon" title="Eliminar"><i class="fas fa-trash-alt"></i> </a>
+              <form class="" action="<?php echo base_url(); ?>Mantto/delete" method="post">
+                <input type="hidden" name="Id" value=" <?php echo $mantto->Id ?> "><i class="fas fa-trash-alt"></i>
+              </form>
             </div>
+
           </div>
         </div>
         <div class="card-body">

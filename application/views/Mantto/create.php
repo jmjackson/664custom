@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Fecha</label>
-                          <input type="text" name="DateMantto" class="form-control" value="<?php echo date('d-m-y'); ?>" readonly>
+                          <input type="text" name="DateMantto" class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly>
                       </div>
                     </div>
                   </div>
