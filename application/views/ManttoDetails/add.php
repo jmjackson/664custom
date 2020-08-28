@@ -35,6 +35,7 @@
                           </th>
                         </tr></thead>
                         <tbody>
+
                           <?php foreach ($MD as $m): ?>
                             <tr>
                               <td><?php echo $m->Name; ?></td>
@@ -42,7 +43,13 @@
                               <td><?php echo $m->Hours; ?></td>
                               <td><?php echo $m->Rate; ?></td>
                               <td><?php echo $m->Total; ?></td>
-                              <td><a href="#"><i class="fas fa-trash"></i> </a> </td>
+                              <td>
+                                <form class="" action="<?php echo base_url(); ?>ManttoDetails/Delete" method="post">
+                                  <input type="hidden" name="ManttoId" value="<?php echo $Mantto->Id; ?>">
+                                  <input type="hidden" name="Id" value="<?php echo $m->Id?>">
+                                  <button type="submit" name="button" class="btn btn-icon btn-sm btn-round"><i class="fas fa-trash"></i> </button>
+                                </form>
+                              </td>
                             </tr>
                           <?php endforeach; ?>
                         </tbody>
