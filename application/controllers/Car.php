@@ -24,8 +24,7 @@ class Car extends CI_Controller{
   {
     $datos = array('title' =>"Detalle del auto" , );
     $data = array(
-      'Car' =>$this->Car_model->GetCarId($id),
-      'Mantto' =>$this->Mantto_model->GetManttoId($id));
+      'Car' =>$this->Car_model->GetCarId($id),);
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Car/details', $data);
     $this->load->view('Layouts/footer');
