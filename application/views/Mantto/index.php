@@ -16,11 +16,11 @@
             <div class="table-responsive">
               <table class="table table-sm">
                 <thead>
-                  <tr>
-                    <td>Folio</td>
-                    <td>Nombre</td>
-                    <td>Celular</td>
-                    <td>Acción</td>
+                  <tr class="text-black-50">
+                    <th>Folio</th>
+                    <th>Nombre</th>
+                    <th>Celular</th>
+                    <th>Acción</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -1,18 +1,15 @@
 <div class="content">
   <div class="row">
-
     <div class="col-md-12">
             <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#mDetailsModal"><i class="fas fa-plus"></i> Nuevo Servicio</a>
-            <div class="table-responsive">
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
                     <h4 class="card-title"> Lista de Servicios</h4>
                   </div>
                   <div class="card-body">
-
-                    <div class="">
-                      <table class="table">
+                    <div class="table-responsive">
+                      <table class="table table-sm table-hover">
                         <thead class=" text-primary">
                           <tr>
                           <th>
@@ -58,11 +55,11 @@
                   </div>
                 </div>
               </div>
-
-            </div>
-
     </div>
   </div>
+</div>
+<div class="row col-md-12 justify-content-center">
+  <a href="" class="btn btn-sm btn-outline-success">Finalizar</a>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="mDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

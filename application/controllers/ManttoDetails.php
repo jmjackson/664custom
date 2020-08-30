@@ -14,15 +14,24 @@ class ManttoDetails extends CI_Controller{
 
   public function addDetails($id='')
   {
-    $datos = array(
-      'services' =>$this->Service_model->GetServices() ,
-      'Mantto'=>$this->Mantto_model->GetManttoId($id),
-      'MD'=>$this->ManttoDetails_model->GetServices($id),);
+    $Mantto=$this->Mantto_model->GetManttoId($id);
 
-    $data = array('title' =>"Agregar Servicios" , );
-    $this->load->view('Layouts/head', $data);
-    $this->load->view('ManttoDetails/add',$datos);
-    $this->load->view('Layouts/footer');
+    if ($Mantto->Status=="InProcess") {
+      $datos = array(
+        'services' =>$this->Service_model->GetServices() ,
+        'Mantto'=>$Mantto,
+        'MD'=>$this->ManttoDetails_model->GetServices($id),);
+        $data = array('title' =>"Agregar Servicios" , );
+        $this->load->view('Layouts/head', $data);
+        $this->load->view('ManttoDetails/add',$datos);
+        $this->load->view('Layouts/footer');
+    }
+    else{
+      echo "Tienes un Error";
+    }
+
+
+
   }
 
   public function AddMantto()

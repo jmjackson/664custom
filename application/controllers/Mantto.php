@@ -51,6 +51,7 @@ class Mantto extends CI_Controller{
     'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'),
     'DateMantto'=>$this->input->post('DateMantto'),
+    'Status'=>"InProcess",
   );
     $manttoid=$this->Mantto_model->AddMantto($data);
 

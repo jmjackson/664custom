@@ -13,12 +13,12 @@
             <div class="table-responsive">
               <table class="table table-sm">
                 <thead>
-                  <tr>
-                    <td>Folio</td>
-                    <td>Matricula</td>
-                    <td>Marca</td>
-                    <td>Color</td>
-                    <td>Acción</td>
+                  <tr class="text-black-50">
+                    <th>Folio</th>
+                    <th>Matricula</th>
+                    <th>Marca</th>
+                    <th>Color</th>
+                    <th>Acción</th>
                   </tr>
                 </thead>
                 <tbody>
