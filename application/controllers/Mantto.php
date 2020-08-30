@@ -109,9 +109,9 @@ class Mantto extends CI_Controller{
   {
     $mantto=$this->Mantto_model->GetManttoId($id);
     $data = array('title' =>"Recibo" , );
-    $this->load->view('Layouts/head', $data);
-    $this->load->view('Mantto/invoice',);
-    $this->load->view('Layouts/footer', $data);
+    $datos = array('mantto' =>$mantto , );
+    $this->load->view('Mantto/invoice',$datos);
+
   }
 
   public function delete($id='')
@@ -140,5 +140,5 @@ class Mantto extends CI_Controller{
     $this->load->view('Mantto/details', $data);
     $this->load->view('Layouts/footer');
   }
-  
+
 }
