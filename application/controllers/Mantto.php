@@ -52,7 +52,7 @@ class Mantto extends CI_Controller{
     'Cellphone'=>$this->input->post('Cellphone'),
     'DateMantto'=>$this->input->post('DateMantto'),
     'Status'=>"InProcess",
-  );
+      );
     $manttoid=$this->Mantto_model->AddMantto($data);
 
     if ($manttoid>0) {
@@ -76,13 +76,6 @@ class Mantto extends CI_Controller{
     else {
       echo "Hubo un error";
     }
-
-    /*try {
-        $f=$this->Mantto_model->AddMantto($data);
-        redirect(base_url()."Car/create/".$f);
-    } catch (\Exception $e) {
-      echo "tienes un error";
-    }*/
   }
   public function edit($id='')
   {
@@ -112,6 +105,14 @@ class Mantto extends CI_Controller{
           echo "Error en su Actualizacion de datos";
         }
   }
+  public function invoice($id='')
+  {
+    $mantto=$this->Mantto_model->GetManttoId($id);
+    $data = array('title' =>"Recibo" , );
+    $this->load->view('Layouts/head', $data);
+    $this->load->view('Mantto/invoice',);
+    $this->load->view('Layouts/footer', $data);
+  }
 
   public function delete($id='')
   {
@@ -139,5 +140,5 @@ class Mantto extends CI_Controller{
     $this->load->view('Mantto/details', $data);
     $this->load->view('Layouts/footer');
   }
-
+  
 }
