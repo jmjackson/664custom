@@ -10,7 +10,7 @@
                   <div class="card-body">
                     <div class="table-responsive">
                       <table class="table table-sm table-hover">
-                        <thead class=" text-primary">
+                        <thead class=" text-black-50">
                           <tr>
                           <th>
                             Servicio
@@ -59,7 +59,7 @@
   </div>
 </div>
 <div class="row col-md-12 justify-content-center">
-  <a href="" class="btn btn-sm btn-outline-success">Finalizar</a>
+  <a href="<?php echo base_url(); ?>ManttoDetails/finish/<?php echo $Mantto->Id; ?>" class="btn btn-sm btn-outline-success">Finalizar</a>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="mDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +74,7 @@
       <div class="modal-body">
         <div class="card card-user">
               <div class="card-body">
-                <form action="<?php echo base_url(); ?>ManttoDetails/AddMantto" method="post">
+                <form action="<?php echo base_url(); ?>ManttoDetails/addMantto" method="post">
                   <div class="row">
                     <div class="col-md-12 pr-1">
                       <input type="hidden" name="ManttoId" value="<?php echo $Mantto->Id; ?>">

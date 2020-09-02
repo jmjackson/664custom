@@ -29,12 +29,9 @@ class ManttoDetails extends CI_Controller{
     else{
       echo "Tienes un Error";
     }
-
-
-
   }
 
-  public function AddMantto()
+  public function addMantto()
   {
     $manttoId=$this->input->post('ManttoId');
     $serviceId=$this->input->post('ServiceId');
@@ -60,30 +57,28 @@ class ManttoDetails extends CI_Controller{
     }
   }
 
-  public function Delete()
+  public function delete()
   {
-    /*
-    Traer primero el id mantto
-      obtener los datos del ManttoDetail desde la funcion getservices (pasandole Id mantto)
-      md=$this->ManttoDetails_model->GetServices($manttoId),
-      foreach y vas $this->ManttoDetails_model->Delete($md->Id)
-
-      obtenemos los datos del datos del carro
-      hacer una funcion que retorne row que vaya al Car_model
-      $manttoId
-      $car=$this->Car_model->GetCarManttoId($mantoid);
-      $this->Car_model->Delete($car->Id);
-
-      if ($this->Mantto_model->Delete($manttoid)) {
-        redirect(base_url().'Mantto');
-      }else{
-      "Hubo un error"
-      }
-    */
     $manttoId=$this->input->post('ManttoId');
     $id=$this->input->post('Id');
-    if ($this->ManttoDetails_model->Delete($id)) {
+    if ($this->ManttoDetails_model->Delete($id))
+    {
       return redirect(base_url().'ManttoDetails/addDetails/'.$manttoId);
     }
   }
+  public function finish($id='')
+  {
+      $mantto=$this->Mantto_model->GetManttoId($id);
+
+      $datos = array(
+        'Status' =>"Done" , );
+        if ($this->Mantto_model->UpdateMantto($id,$datos)) {
+          redirect(base_url()."Mantto/invoice/".$id);
+        }
+        else{
+          echo "Tienes un Error";
+        }
+
+  }
+
 }
