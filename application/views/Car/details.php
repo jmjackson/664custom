@@ -4,9 +4,9 @@
       <div class="card">
         <div class="card-header">
           <div class="row justify-content-around">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-default">
                   <h6 class="text-center text-white"><i class="fas fa-info-circle"></i> Información del Auto</h6>
                 </div>
                 <div class="card-body">
@@ -49,11 +49,18 @@
             <table class="table table-sm">
               <tr>
                 <td>Servicio</td>
-                <td>Nombre</td>
-                <td>Hohras</td>
+                <td>Horas</td>
                 <td>Precio</td>
                 <td>Total</td>
               </tr>
+              <?php foreach ($Services as $s): ?>
+                <tr>
+                  <td class="text-black-20"><?php echo $s->Name; ?></td>
+                  <td><?php echo $s->Hours; ?></td>
+                  <td><?php echo $s->Rate; ?></td>
+                  <td><?php echo $s->Total; ?></td>
+                </tr>
+              <?php endforeach; ?>
             </table>
           </div>
           <hr>

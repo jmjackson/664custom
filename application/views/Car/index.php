@@ -25,7 +25,7 @@
                   <?php foreach ($Car as $c): ?>
                     <tr>
                       <td><?php echo $c->ManttoId; ?></td>
-                      <td><?php echo $c->Plate; ?></td>
+                      <td><?php echo $c->Plate; ?></td> 
                       <td><?php echo $c->Make; ?></td>
                       <td><?php echo $c->Color; ?></td>
                       <td>
