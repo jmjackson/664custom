@@ -65,7 +65,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Celular</label>
-                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="">
+                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label>Color</label>
-                    <input type="text" name="Color" class="form-control" placeholder="" value="">
+                    <input type="text" name="Color" class="form-control" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label>Año</label>
-                    <input type="text" name="Year" class="form-control" placeholder="" value="" >
+                    <input type="text" name="Year" class="form-control" placeholder="" value="" required >
                   </div>
                 </div>
               </div>

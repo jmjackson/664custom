@@ -30,7 +30,7 @@
                       <td><?php echo $si->Name; ?></td>
                       <td><?php echo $si->Cellphone; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>Mantto/details/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-primary btn-icon" title="Informacion"><i class="fas fa-eye"></i> </a>
+                        <a href="<?php echo base_url(); ?>Mantto/details/<?php echo $si->Id; ?>" class="btn btn-sm btn-round btn-outline-default btn-icon" title="Informacion"><i class="fas fa-eye"></i> </a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

@@ -6,7 +6,7 @@
           <div class="row justify-content-around">
             <div class="col-md-6">
               <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-default">
                   <h6 class="text-center text-white">Info Recibo</h6>
                 </div>
                 <div class="card-body">
@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-6">
               <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-default">
                   <h6 class="text-white text-center">Info Autos</h6>
                 </div>
                 <div class="card-body">
@@ -74,9 +74,7 @@
           <div class="row">
             <div class="update ml-auto mr-auto">
               <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon" title="Editar"><i class="fas fa-pencil-alt"></i> </a>
-              <form class="" action="<?php echo base_url(); ?>Mantto/delete" method="post">
-                <input type="hidden" name="Id" value=" <?php echo $mantto->Id ?> "><i class="fas fa-trash-alt"></i>
-              </form>
+              <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon" title="Eliminar"><i class="fas fa-trash-alt"></i> </a>
             </div>
 
           </div>

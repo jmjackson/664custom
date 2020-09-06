@@ -10,7 +10,7 @@ class Mantto extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mantto_model','Car_model'));
+    $this->load->model(array('Mantto_model','Car_model',));
   }
 
   function index()
@@ -84,12 +84,14 @@ class Mantto extends CI_Controller{
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Mantto/edit',$data);
     $this->load->view('Layouts/footer');
+
   }
 
   public function update()
   {
     $Id=$this->input->post('Id');
-    $datos = array('Folio' =>$this->input->post('Folio'),
+
+    $dataMantto= array('Folio' =>$this->input->post('Folio'),
     'Name' =>$this->input->post('Name'),
     'Address'=>$this->input->post('Address'),
     'City'=>$this->input->post('City'),
@@ -98,12 +100,22 @@ class Mantto extends CI_Controller{
     'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'));
 
-        if ($this->Mantto_model->UpdateMantto($Id,$datos)) {
+    $dataCar = array('Plate' =>$this->input->post('Plate'),
+    'Make'=>$this->input->post('Make'),
+    'Model'=>$this->input->post('Model'),
+    'Color'=>$this->input->post('Color'),
+    'Notes'=>$this->input->post('Notes'),
+    'Year'=>$this->input->post('Year'));
+
+    $carId=$this->input->post('CarId');
+
+    $this->Mantto_model->UpdateMantto($Id,$dataMantto);
+    if ($this->Car_model->UpdateCar($carId,$dataCar)){
         redirect(base_url().'Mantto');
-        }
-        else {
-          echo "Error en su Actualizacion de datos";
-        }
+    }
+    else{
+      echo "Error en su Actualizacion de datos";
+    }
   }
   public function invoice($id='')
   {
@@ -124,13 +136,23 @@ class Mantto extends CI_Controller{
   }
   public function deletep($id='')
   {
-    if ($this->Mantto_model->Delete($id)) {
-       redirect(base_url().'Mantto');
+    $datos=$this->ManttoDetails_model->GetServices($id);
+    if ($datos != null) {
+    foreach ($datos as $d) {
+      $this->ManttoDetails_model->Delete($d->Id);
     }
-    else{
-      echo "Error al Eliminar sus datos";
+
+    }
+    $this->Mantto_model->DeleteCar($id);
+
+    if ($this->Mantto_model->DeleteMantto($id)) {
+    redirect(base_url().'Mantto');
+    }
+    else {
+      echo "Error en su Borrar los datos";
     }
   }
+
 
   public function details($id)
   {

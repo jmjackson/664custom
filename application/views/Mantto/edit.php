@@ -73,6 +73,7 @@
             </div>
             <div class="col-md-5 col-sm-12 border m-1">
               <h5 class="text-center m-0">Datos del Auto</h5>
+              <input type="hidden" name="CarId" value="<?php echo $mantto->carId ?>">
               <div class="row">
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
