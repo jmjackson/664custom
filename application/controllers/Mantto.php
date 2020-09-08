@@ -10,7 +10,7 @@ class Mantto extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mantto_model','Car_model',));
+    $this->load->model(array('Mantto_model','Car_model','ManttoDetails_model'));
   }
 
   function index()
@@ -137,6 +137,7 @@ class Mantto extends CI_Controller{
   public function deletep($id='')
   {
     $datos=$this->ManttoDetails_model->GetServices($id);
+
     if ($datos != null) {
     foreach ($datos as $d) {
       $this->ManttoDetails_model->Delete($d->Id);
