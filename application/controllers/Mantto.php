@@ -137,6 +137,7 @@ class Mantto extends CI_Controller{
   public function deletep($id='')
   {
     $datos=$this->ManttoDetails_model->GetServices($id);
+
     if ($datos != null) {
     foreach ($datos as $d) {
       $this->ManttoDetails_model->Delete($d->Id);
