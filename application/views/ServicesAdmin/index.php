@@ -1,13 +1,10 @@
 <div class="content">
   <div class="container">
-    <div class="row pb-3">
-    </div>
-    </button>
     <div class="row justify-content-center m-3">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5>Lista de Autos</h5>
+            <h6>Todos los Servicios </h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -15,21 +12,19 @@
                 <thead>
                   <tr class="text-black-50">
                     <th>Folio</th>
-                    <th>Matricula</th>
-                    <th>Marca</th>
-                    <th>Color</th>
-                    <th>Acción</th>
+                    <th>Nombre</th>
+                    <th>Placa</th>
+                    <th>Servicio</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($Car as $c): ?>
+                  <?php foreach ($Services as $s): ?>
                     <tr>
-                      <td><?php echo $c->ManttoId; ?></td>
-                      <td><?php echo $c->Plate; ?></td>
-                      <td><?php echo $c->Make; ?></td>
-                      <td><?php echo $c->Color; ?></td>
+                      <td><?php echo $s->Folio; ?></td>
+                      <td><?php echo $s->Name; ?></td>
+                      <td><?php echo $s->Plate; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>Car/details/<?php echo $c->Id; ?>" class="btn btn-sm btn-round btn-default btn-icon"><i class="fa fa-eye"></i> </a>
+                        <a href="<?php echo base_url(); ?>ServicesAdmin/details" class="btn btn-sm btn-round btn-default btn-icon" title="Informacion"><i class="fas fa-wrench"></i> </a>
                       </td>
                     </tr>
                   <?php endforeach; ?>

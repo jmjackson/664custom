@@ -45,20 +45,20 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <h5>Servicios</h5>
+            <h5><b>Servicios</b></h5>
             <table class="table table-sm">
               <tr>
-                <td>Servicio</td>
-                <td>Horas</td>
-                <td>Precio</td>
-                <td>Total</td>
+                <td><b>Servicio</td>
+                <td><b>Horas</td>
+                <td><b>Precio</td>
+                <td><b>Total</td>
               </tr>
               <?php foreach ($Services as $s): ?>
                 <tr>
-                  <td class="text-black-20"><?php echo $s->Name; ?></td>
-                  <td><?php echo $s->Hours; ?></td>
-                  <td><?php echo $s->Rate; ?></td>
-                  <td><?php echo $s->Total; ?></td>
+                  <td class="text-black-50"><?php echo $s->Name; ?></td>
+                  <td class="text-black-50"><?php echo $s->Hours; ?></td>
+                  <td class="text-black-50"><?php echo $s->Rate; ?></td>
+                  <td class="text-black-50"><?php echo $s->Total; ?></td>
                 </tr>
               <?php endforeach; ?>
             </table>
