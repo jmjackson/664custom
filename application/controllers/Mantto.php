@@ -10,7 +10,7 @@ class Mantto extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mantto_model','Car_model',));
+    $this->load->model(array('Mantto_model','Car_model','ManttoDetails_model'));
   }
 
   function index()
