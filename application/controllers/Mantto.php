@@ -10,7 +10,7 @@ class Mantto extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Mantto_model','Car_model','ManttoDetails_model'));
+    $this->load->model(array('Mantto_model','Car_model','ManttoDetails_model','Service_model'));
   }
 
   function index()
@@ -158,10 +158,11 @@ class Mantto extends CI_Controller{
   public function details($id)
   {
     $datos = array('title' =>"Detalle de Recibo" , );
-    $data = array('mantto' =>$this->Mantto_model->GetManttoId($id),);
+    $data = array('mantto' =>$this->Mantto_model->GetManttoId($id),'MD'=>$this->ManttoDetails_model->GetServices($id));
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Mantto/details', $data);
     $this->load->view('Layouts/footer');
+
   }
 
 }

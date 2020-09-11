@@ -59,4 +59,12 @@ class Mantto_model extends CI_Model{
 
     return $datos;
   }
+  public function Getmanttodetails()
+  {
+    $this->db->select('c.*,m.Folio, m.Name');
+    $this->db->from('Car c');
+    $this->db->join('Mantto m', 'c.ManttoId = m.Id', 'inner');
+    return $this->db->get()->result();
+  }
+
 }
