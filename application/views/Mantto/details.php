@@ -81,22 +81,40 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <h5>Servicios</h5>
-            <table class="table table-sm">
-              <tr>
-                <td>Servicos</td>
-                <td>Nombre</td>
-                <td>Horas</td>
-                <td>Precio</td>
-                <td>Total</td>
-              </tr>
-            </table>
+            <h5>Detalles De Servicios</h5>
+            <table class="table table-sm ">
+              <thead class=" text-black-50">
+                <tr>
+                <th>
+                  Servicio
+                </th>
+                <th>
+                  Desarrollo
+                </th>
+                <th>
+                  Horas
+                </th>
+                <th>
+                  Costo
+                </th>
+                <th>
+                  Total
+                </th>
+              </tr></thead>
+              <tbody>
 
+                <?php foreach ($MD as $m): ?>
+                  <tr>
+                    <td><?php echo $m->Name; ?></td>
+                    <td><?php echo $m->Supplier; ?></td>
+                    <td><?php echo $m->Hours; ?></td>
+                    <td><?php echo $m->Rate; ?></td>
+                    <td><?php echo $m->Total; ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
           </div>
-          <hr>
-          <h5>Costos Totales</h5>
-          <p>Total del Mantenimiento</p>
-          <p>IVA</p>
         </div>
       </div>
     </div>
