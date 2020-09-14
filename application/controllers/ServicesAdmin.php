@@ -7,7 +7,7 @@ class ServicesAdmin extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('ServiceAdmin_model','Car_model','Mantto_model'));
+    $this->load->model(array('ServiceAdmin_model'));
   }
 
   public function index()
@@ -17,6 +17,15 @@ class ServicesAdmin extends CI_Controller{
     $this->load->view('Layouts/head', $data);
     $this->load->view('ServicesAdmin/index', $datos);
     $this->load->view('Layouts/footer');
+  }
+  public function details($Id)
+  {
+    $data = array('title' =>"Detalles de Servicio" , );
+    $datos = array('Service' =>$this->ServiceAdmin_model->GetSerAdminbyId($Id));
+    $this->load->view('Layouts/head', $data);
+    $this->load->view('ServicesAdmin/details',$datos);
+    $this->load->view('Layouts/footer');
+
   }
 
 }

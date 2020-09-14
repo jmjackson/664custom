@@ -18,13 +18,14 @@
                   </tr>
                 </thead>
                 <tbody>
+                <?php var_dump($Services); ?>
                   <?php foreach ($Services as $s): ?>
                     <tr>
                       <td><?php echo $s->Folio; ?></td>
                       <td><?php echo $s->Name; ?></td>
                       <td><?php echo $s->Plate; ?></td>
                       <td>
-                        <a href="<?php echo base_url(); ?>ServicesAdmin/details" class="btn btn-sm btn-round btn-default btn-icon" title="Informacion"><i class="fas fa-wrench"></i> </a>
+                        <a href="<?php echo base_url(); ?>ServicesAdmin/details/<?php echo $s->IdMantto; ?>" class="btn btn-sm btn-round btn-default btn-icon" title="Informacion"><i class="fas fa-wrench"></i> </a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
