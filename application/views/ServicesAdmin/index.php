@@ -18,7 +18,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php var_dump($Services); ?>
                   <?php foreach ($Services as $s): ?>
                     <tr>
                       <td><?php echo $s->Folio; ?></td>

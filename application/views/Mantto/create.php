@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Fecha</label>
-                          <input type="text" name="DateMantto" class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly>
+                          <input type="text" name="DateMantto" class="form-control" value="<?php echo date('m-d-Y'); ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -36,22 +36,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>Dirección</label>
-                    <input type="text" name="Address" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
                     <label>Ciudad</label>
                     <input type="text" name="City" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Codigo Postal</label>
-                    <input type="text" name="Zip" class="form-control" placeholder="" value="">
                   </div>
                 </div>
               </div>

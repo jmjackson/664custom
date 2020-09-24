@@ -19,9 +19,6 @@
                             Desarrollo
                           </th>
                           <th>
-                            Horas
-                          </th>
-                          <th>
                             Costo
                           </th>
                           <th>
@@ -32,12 +29,10 @@
                           </th>
                         </tr></thead>
                         <tbody>
-
                           <?php foreach ($MD as $m): ?>
                             <tr>
                               <td><?php echo $m->Name; ?></td>
                               <td><?php echo $m->Supplier; ?></td>
-                              <td><?php echo $m->Hours; ?></td>
                               <td><?php echo $m->Rate; ?></td>
                               <td><?php echo $m->Total; ?></td>
                               <td>
@@ -90,16 +85,10 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>Hora</label>
-                        <input type="text" name="Hours" class="form-control"   value="">
-                      </div>
-                    </div>
-                    <div class="col-md-6 px-1">
+                    <div class="col-md-12 pr-1">
                       <div class="form-group">
                         <label>Costo</label>
-                        <input type="text" name="Rate" class="form-control"  value="">
+                        <input type="text" name="Rate" class="form-control"   value="">
                       </div>
                     </div>
                   </div>

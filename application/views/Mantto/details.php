@@ -92,9 +92,6 @@
                   Desarrollo
                 </th>
                 <th>
-                  Horas
-                </th>
-                <th>
                   Costo
                 </th>
                 <th>
@@ -107,7 +104,6 @@
                   <tr>
                     <td><?php echo $m->Name; ?></td>
                     <td><?php echo $m->Supplier; ?></td>
-                    <td><?php echo $m->Hours; ?></td>
                     <td><?php echo $m->Rate; ?></td>
                     <td><?php echo $m->Total; ?></td>
                   </tr>

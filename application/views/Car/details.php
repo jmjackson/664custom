@@ -49,14 +49,12 @@
             <table class="table table-sm">
               <tr>
                 <td><b>Servicio</td>
-                <td><b>Horas</td>
                 <td><b>Precio</td>
                 <td><b>Total</td>
               </tr>
               <?php foreach ($Services as $s): ?>
                 <tr>
                   <td class="text-black-50"><?php echo $s->Name; ?></td>
-                  <td class="text-black-50"><?php echo $s->Hours; ?></td>
                   <td class="text-black-50"><?php echo $s->Rate; ?></td>
                   <td class="text-black-50"><?php echo $s->Total; ?></td>
                 </tr>
