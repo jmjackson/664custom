@@ -21,9 +21,7 @@
                           <th>
                             Costo
                           </th>
-                          <th>
-                            Total
-                          </th>
+
                           <th>
                             Action
                           </th>
@@ -34,7 +32,7 @@
                               <td><?php echo $m->Name; ?></td>
                               <td><?php echo $m->Supplier; ?></td>
                               <td><?php echo $m->Rate; ?></td>
-                              <td><?php echo $m->Total; ?></td>
+                              
                               <td>
                                 <form class="" action="<?php echo base_url(); ?>ManttoDetails/Delete" method="post">
                                   <input type="hidden" name="ManttoId" value="<?php echo $Mantto->Id; ?>">

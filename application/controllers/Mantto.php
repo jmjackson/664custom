@@ -50,9 +50,11 @@ class Mantto extends CI_Controller{
     'Email'=>$this->input->post('Email'),
     'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'),
-    'DateMantto'=>$this->input->post('DateMantto'),
+    'DateMantto'=>date("m-d-Y",strtotime($this->input->post('DateMantto'))),
     'Status'=>"InProcess",
       );
+
+
     $manttoid=$this->Mantto_model->AddMantto($data);
 
     if ($manttoid>0) {
@@ -121,9 +123,10 @@ class Mantto extends CI_Controller{
   {
     $mantto=$this->Mantto_model->GetManttoId($id);
     $data = array('title' =>"Recibo" , );
-    $datos = array('mantto' =>$mantto , );
+    $datos = array('mantto' =>$mantto , 'MD'=>$this->ManttoDetails_model->GetServices($id));
+    $this->load->view('Layouts/head', $data);
     $this->load->view('Mantto/invoice',$datos);
-
+    $this->load->view('Layouts/footer');
   }
 
   public function delete($id='')
