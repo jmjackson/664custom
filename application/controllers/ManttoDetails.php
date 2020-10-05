@@ -7,7 +7,8 @@ class ManttoDetails extends CI_Controller{
   {
     parent::__construct();
     //Codeigniter : Write Less Do More
-    $this->load->model(array('Service_model','Mantto_model','ManttoDetails_model'));
+    $this->load->model(array('Service_model','Mantto_model','ManttoDetails_model',
+    'ServiceAdmin_model'));
   }
 
 
@@ -28,6 +29,17 @@ class ManttoDetails extends CI_Controller{
     }
     else{
       echo "Tienes un Error";
+    }
+  }
+
+  public function AddSPrice()
+  {
+    $mdId=$this->input->post('MDetailId');
+    $SupplierPrice=$this->input->post('SupplierPrice');
+    $md=$this->ManttoDetails_model->GetMD($mdId);
+    $data = array('SupplierPrice' =>$SupplierPrice , );
+    if ($this->ServiceAdmin_model->UpdateCost($mdId,$data)) {
+      redirect(basE_url().'ServicesAdmin/details/'.$md->ManttoId);
     }
   }
 

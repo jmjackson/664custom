@@ -18,7 +18,7 @@ class ServiceAdmin_model extends CI_Model{
 
   public function GetSerAdminbyId($Id)
 {
-  $this->db->select('m.*,md.Hours,s.Name ServiceName,sp.Name SupplierName,md.Total');
+  $this->db->select('m.*, md.Id mdId,md.Hours,md.SupplierPrice,s.Name ServiceName,sp.Name SupplierName,md.Total,md.Rate');
   $this->db->from('Mantto m');
   $this->db->join('ManttoDetail md', 'm.Id = md.ManttoId', 'inner');
   $this->db->join('Services s', 'md.ServiceId = s.Id', 'inner');
@@ -27,4 +27,9 @@ class ServiceAdmin_model extends CI_Model{
   return $this->db->get()->result();
 }
 
+  public function UpdateCost($id,$data)
+  {
+    $this->db->where('Id', $id);
+    return $this->db->update('ManttoDetail', $data);
+  }
 }

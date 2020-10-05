@@ -1,8 +1,11 @@
 <div class="content">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12" id="printDiv" >
       <div class="card">
-        <div class="card-header">
+        <div class="row justify-content-center">
+          <img src="<?php echo base_url(); ?>resources/images/logox.png" alt="" width="120">
+        </div>
+        <div class="card-header mt-3">
           <div class="row justify-content-around">
             <div class="col-md-6">
               <div class="card">
@@ -92,16 +95,23 @@
               </tr></thead>
               <tbody>
 
-                <?php foreach ($MD as $m): ?>
+                <?php $ct=0; foreach ($MD as $m): ?>
                   <tr>
                     <td><?php echo $m->Name; ?></td>
                     <td><?php echo $m->Supplier; ?></td>
-                    <td><?php echo $m->Rate; ?></td>
+                    <td><?php echo '$'.$m->Rate; ?></td>
                    </tr>
-                <?php endforeach; ?>
+                <?php $ct+=$m->Rate; endforeach; ?>
+                <tr>
+                  <td colspan="2" class="text-right">Total</td>
+                  <td><?php echo '$'.number_format($ct,2,'.',','); ?></td>
+                </tr>
               </tbody>
             </table>
           </div>
+        </div>
+        <div class="row justify-content-center">
+          <button   class="btn btn-default btn-sm d-print-none" id="doPrint">Imprimir</button>
         </div>
       </div>
     </div>

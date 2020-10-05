@@ -28,4 +28,10 @@ class ManttoDetails_model extends CI_Model{
     $this->db->where('Id', $id);
     return $this->db->delete('ManttoDetail');
   }
+
+  public function GetMD($id)
+  {
+    $this->db->where('Id', $id);
+    return $this->db->get('ManttoDetail')->row();
+  }
 }

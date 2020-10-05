@@ -1,18 +1,5 @@
 
-<!-- <footer class="footer footer-black footer-white text-center">
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="credits ml-auto">
-        <span class="copyright text-center">
-          Derecho Reservados
-          © <script>
-            document.write(new Date().getFullYear())
-          </script>,  by 664CUSTOM.com
-        </span>
-      </div>
-    </div>
-  </div>
-</footer> -->
+
 </div>
 </div>
 <!--   Core JS Files   -->
@@ -24,5 +11,16 @@
 <script src="<?php echo base_url();?>resources/js/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?php echo base_url(); ?>resources/js/paper-dashboard.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>resources/js/script.js"></script>
+<script>
+    document.getElementById('doPrint').addEventListener("click", function () {
+        var printContents = document.getElementById('printDiv').innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+        window.location.replace('<?php echo base_url();?>');
+    });
+</script>
 </body>
 </html>
