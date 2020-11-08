@@ -23,7 +23,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($Service as $s): ?>
+                  <?php $countSupplier=0;$countRate=0; foreach ($Service as $s): ?>
                     <tr>
                       <td><?php echo $s->ServiceName; ?></td>
                       <td><?php echo $s->SupplierName; ?></td>
@@ -32,7 +32,14 @@
                       <td><?php echo "$".number_format($s->Rate-$s->SupplierPrice,2,'.',','); ?></td>
                       <td><button type="button" class="btn btn-sm btn-icon btn-round btn-default"data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $s->mdId; ?>"><i class="fas fa-plus"></button></td>
                     </tr>
-                  <?php endforeach; ?>
+                  <?php $countRate+=$s->Rate;$countSupplier+=$s->SupplierPrice; endforeach; ?>
+                  <tr>
+                    <td colspan="2" class="font-weight-bold">Total</td>
+                    <td class="font-weight-bold"><?php echo "$".number_format($countRate,2,'.',',') ?></td>
+                    <td class="font-weight-bold"><?php echo "$".number_format($countSupplier,2,'.',',') ?></td>
+                    <td class="font-weight-bold"><?php echo "$".number_format($countRate-$countSupplier,2,'.',','); ?></td>
+                    <td></td>
+                  </tr>
                 </tbody>
               </table>
             </div>

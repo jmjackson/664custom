@@ -60,13 +60,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Telefono</label>
-                    <input type="text" name="Telefono" class="form-control" placeholder="" value="<?php echo $mantto->Telefono; ?>">
+                    <input type="text" name="Telefono" class="form-control input-phone" placeholder="" value="<?php echo $mantto->Telefono; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Celular</label>
-                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="<?php echo $mantto->Cellphone; ?>">
+                    <input type="text" name="Cellphone" class="form-control input-element" placeholder="" value="<?php echo $mantto->Cellphone; ?>">
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label>Año</label>
-                    <input type="text" name="Year" class="form-control" placeholder="" value="<?php echo $mantto->Year; ?>" >
+                    <input type="text" name="Year" class="form-control input-date" placeholder="" value="<?php echo $mantto->Year; ?>" >
                   </div>
                 </div>
               </div>

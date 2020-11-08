@@ -7,7 +7,26 @@ $('#exampleModal').on('show.bs.modal', function (event) {
            var modal = $(this)
            modal.find('#MDId').val(recipient)
        });
-       
+
        $(document).ready( function () {
            $('#myTable').DataTable();
        } );
+
+       var cleave = new Cleave('.input-element', {
+         phone: true,
+         phoneRegionCode: 'US'
+       });
+       var cleave = new Cleave('.input-phone', {
+         phone: true,
+         phoneRegionCode: 'US'
+       });
+       var cleave = new Cleave('.input-date', {
+         date: true,
+         delimiter: '-',
+         datePattern: ['Y']
+       });
+
+       var money = new Cleave('.input-money', {
+         numeral: true,
+         numeralThousandsGroupStyle: 'thousand'
+       });

@@ -45,13 +45,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Telefono</label>
-                    <input type="text" name="Telefono" class="form-control" placeholder="" value="">
+                    <input type="text" name="Telefono" class="form-control input-element" placeholder="" value="">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Celular</label>
-                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="" required >
+                    <input type="text" name="Cellphone" class="form-control input-phone" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
@@ -90,7 +90,7 @@
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label>Año</label>
-                    <input type="text" name="Year" class="form-control" placeholder="" value="" required >
+                    <input type="text" name="Year" class="form-control input-date" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
