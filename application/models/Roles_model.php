@@ -17,7 +17,7 @@ class Roles_model extends CI_Model{
     //ese result nos va a traer un arreglo
     //select*from Roles
     $this->db->select('r.*');
-    $this->db->from('Roles');
+    $this->db->from('Roles r');
     return $this->db->get()->result();
   }
 

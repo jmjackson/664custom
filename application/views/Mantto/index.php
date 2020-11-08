@@ -14,10 +14,11 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-sm">
+              <table class="table table-sm" id="myTable">
                 <thead>
                   <tr class="text-black-50">
                     <th>Folio</th>
+                    <th>Fecha</th>
                     <th>Nombre</th>
                     <th>Celular</th>
                     <th>Acción</th>
@@ -27,6 +28,7 @@
                   <?php foreach ($mantto as $si): ?>
                     <tr>
                       <td><?php echo $si->Folio; ?></td>
+                      <td><?php echo  date('m-d-Y',strtotime($si->DateMantto)) ?></td>
                       <td><?php echo $si->Name; ?></td>
                       <td><?php echo $si->Cellphone; ?></td>
                       <td>

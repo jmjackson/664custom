@@ -7,7 +7,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header bg-default">
-                  <h6 class="text-center text-white">Info Recibo</h6>
+                  <h6 class="text-center text-white">Información Recibo</h6>
                 </div>
                 <div class="card-body">
                   <table class="table-sm table-borderless">
@@ -15,7 +15,7 @@
                       <td> <b>Folio</b> </td>
                       <td><?php echo $mantto->Folio; ?></td>
                       <td> <b>Fecha</b> </td>
-                      <td><?php echo $mantto->DateMantto; ?></td>
+                      <td><?php echo  date('m-d-Y',strtotime($mantto->DateMantto)) ; ?></td>
                     </tr>
                     <tr>
                       <td> <b>Nombre</b> </td>
@@ -24,7 +24,7 @@
                       <td><?php echo $mantto->Email; ?></td>
                     </tr>
                     <tr>
-                      <td> <b>Dirrecion</b> </td>
+                      <td> <b>Dirección</b> </td>
                       <td colspan="3"> <?php echo $mantto->Address ?> </td>
                     </tr>
                     <tr>
@@ -40,7 +40,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header bg-default">
-                  <h6 class="text-white text-center">Info Autos</h6>
+                  <h6 class="text-white text-center">Información Autos</h6>
                 </div>
                 <div class="card-body">
                   <table class="table-sm table-borderless">
@@ -75,8 +75,8 @@
             <div class="update ml-auto mr-auto">
               <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon" title="Editar"><i class="fas fa-pencil-alt"></i> </a>
               <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon" title="Eliminar"><i class="fas fa-trash-alt"></i> </a>
+              <a href="<?php echo base_url(); ?>Mantto/invoice/<?php echo $mantto->Id ?>" class="btn btn-sm btn-round btn-outline-default btn-icon" title="Recibo"> <i class="fas fa-file-alt"></i> </a>
             </div>
-
           </div>
         </div>
         <div class="card-body">

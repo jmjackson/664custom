@@ -2915,7 +2915,7 @@ License - nucleoapp.com/license/
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 12px 7px;
+  padding: 8px 3px;
   vertical-align: middle; }
 
 .table .th-description {
@@ -2926,7 +2926,7 @@ License - nucleoapp.com/license/
   font-weight: 300;
   margin-top: 5px;
   position: relative;
-  top: 4px;
+  top: 2px;
   text-align: right; }
 
 .table .td-total {
@@ -2982,10 +2982,10 @@ License - nucleoapp.com/license/
 
 .table-responsive {
   overflow: scroll;
-  padding-bottom: 10px; }
+  padding-bottom: 5px; }
 
 #tables .table-responsive {
-  margin-bottom: 30px; }
+  margin-bottom: 10px; }
 
 .table-hover > tbody > tr:hover {
   background-color: #f5f5f5; }
