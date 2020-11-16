@@ -16,10 +16,9 @@ class ManttoDetails_model extends CI_Model{
 
   public function GetServices($id)
   {
-    $this->db->select('md.Id,md.Hours,md.Rate,md.Total,s.Name,sp.Name Supplier');
+    $this->db->select('md.*');
     $this->db->from('ManttoDetail md');
-    $this->db->join('Services s', 'md.ServiceId = s.Id', 'inner');
-    $this->db->join('Suppliers sp', 's.SupplierId = sp.Id', 'inner');
+    $this->db->join('Mantto m', 'md.ManttoId = m.Id','inner');
     $this->db->where('md.ManttoId', $id);
     return $this->db->get()->result();
   }

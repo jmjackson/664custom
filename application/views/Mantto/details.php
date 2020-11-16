@@ -29,8 +29,6 @@
                         <td colspan="3"> <?php echo $mantto->Address ?> </td>
                       </tr>
                       <tr>
-                        <td> <b>Telefono</b> </td>
-                        <td> <?php echo $mantto->Telefono ?></td>
                         <td> <b>Celular</b> </td>
                         <td><?php echo $mantto->Cellphone ?></td>
                       </tr>
@@ -43,7 +41,7 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header bg-default">
-                  <h6 class="text-white text-center">Información Autos</h6>
+                  <h6 class="text-white text-center">Información Auto</h6>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -51,24 +49,14 @@
                       <tr>
                         <td> <b>Placa</b> </td>
                         <td><?php echo $mantto->Plate; ?></td>
-                        <td> <b>Fabricante</b> </td>
-                        <td><?php echo $mantto->Make; ?></td>
                       </tr>
                       <tr>
-                        <td> <b>Modelo</b> </td>
-                        <td><?php echo $mantto->Model; ?></td>
                         <td> <b>Color</b> </td>
                         <td><?php echo $mantto->Color; ?></td>
                       </tr>
                       <tr>
-                        <td colspan="2"> <b>Año</b> </td>
+                        <td><b>Año</b> </td>
                         <td><?php echo $mantto->Year; ?></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td colspan="2"> <b>Nota</b> </td>
-                        <td><?php echo $mantto->Notes; ?></td>
                       </tr>
                     </table>
                   </div>
@@ -77,11 +65,17 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="update ml-auto mr-auto">
-              <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon" title="Editar"><i class="fas fa-pencil-alt"></i> </a>
-              <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon" title="Eliminar"><i class="fas fa-trash-alt"></i> </a>
-              <a href="<?php echo base_url(); ?>Mantto/invoice/<?php echo $mantto->Id ?>" class="btn btn-sm btn-round btn-outline-default btn-icon" title="Recibo"> <i class="fas fa-file-alt"></i> </a>
+          <div class="row justify-content-center">
+              <a href="<?php echo base_url(); ?>Mantto/edit/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-success btn-icon ml-2" title="Editar"><i class="fas fa-pencil-alt"></i> </a>
+              <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon ml-2" title="Eliminar"><i class="fas fa-trash-alt"></i> </a>
+
+          </div>
+            <div class="row justify-content-center">
+              <div class="col-md-5">
+                <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#exampleServices">Servicio</a>
+                <a href="<?php echo base_url() ?>Mantto/invoice/<?php echo $mantto->Id ?>" class="btn btn-default">Recibo</a>
+                <a href="#"  class="btn btn-default">Abono</a>
+              </div>
             </div>
           </div>
         </div>
@@ -91,33 +85,116 @@
             <table class="table table-sm ">
               <thead class=" text-black-50">
                 <tr>
-                <th>
-                  Servicio
-                </th>
-                <th>
-                  Desarrollo
-                </th>
-                <th>
-                  Costo
-                </th>
-                <th>
-                  Total
-                </th>
-              </tr></thead>
+                  <th></th>
+                  <th>Cobro</th>
+                  <th>Servicio</th>
+                  <th>Deposito</th>
+                  <th>Proveedor</th>
+                  <th>Ganancia</th>
+                  <th></th>
+              </tr>
+            </thead>
               <tbody>
-
-                <?php foreach ($MD as $m): ?>
+                <?php $costo=0;$deposito=0; $costop=0;$ganancia=0; foreach ($MD as $m): ?>
                   <tr>
-                    <td><?php echo $m->Name; ?></td>
-                    <td><?php echo $m->Supplier; ?></td>
-                    <td><?php echo $m->Rate; ?></td>
-                    <td><?php echo $m->Total; ?></td>
+                    <td></td>
+                    <td><?php echo '$'.number_format($m->Costo,'2','.',','); ?></td>
+                    <td><?php echo $m->Services; ?></td>
+                    <td><?php echo '$'.number_format($m->Deposito,'2','.',','); ?></td>
+                    <td><?php echo '$'.number_format($m->CostoProveedor,'2','.',','); ?></td>
+                    <td><?php echo '$'.number_format($m->Ganancia,'2','.',','); ?></td>
+                    <td>
+
+                      <a href="#" class="btn btn-round btn-icon btn-warning pull-left ml-1"><i class="fas fa-pen-alt"></i> </a>
+                      <form class="" action="<?php echo base_url(); ?>ManttoDetails/delete" method="post">
+                        <input type="hidden" name="ManttoId" value="<?php echo $m->ManttoId; ?>">
+                        <input type="hidden" name="Id" value="<?php echo $m->Id; ?>">
+                        <button type="submit" name="button" class="btn btn-round btn-icon pull-left ml-1 btn-danger"><i class="fas fa-trash-alt"></i> </button>
+                      </form>
+                    </td>
                   </tr>
-                <?php endforeach; ?>
+
+                <?php $costo+=$m->Costo; $deposito+=$m->Deposito;
+                  $costop+=$m->CostoProveedor;
+                  $ganancia+=$m->Ganancia;
+                endforeach; ?>
+                <tr class="font-weight-bold">
+                  <td>Total</td>
+                  <td><?php echo '$'.number_format($costo,'2','.',','); ?></td>
+                  <td></td>
+                  <td><?php echo '$'.number_format($deposito,'2','.',','); ?></td>
+                  <td><?php echo '$'.number_format($costop,'2','.',','); ?></td>
+                  <td><?php echo '$'.number_format($ganancia,'2','.',','); ?></td>
+                  <td></td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleServices" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Servicio</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url(); ?>ManttoDetails/Add" method="post">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Nombre del Servicio</label>
+                        <input type="hidden" name="ManttoId" value="<?php echo $mantto->Id; ?>">
+                        <input type="text" name="Service" class="form-control"  value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Costo</label>
+                        <input type="text" name="Costo" class="form-control" placeholder="$0.00" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Deposito</label>
+                        <input type="text" name="Deposito" class="form-control" placeholder="$0.00" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Nombre del Proveedor</label>
+                        <input type="text" name="Proveedor" class="form-control" placeholder="Proveedor" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Costo Proveedor</label>
+                        <input type="text" name="CostoProveedor" class="form-control" placeholder="$0.00" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Guardar</button>
+                    </div>
+                  </div>
+                </form>
       </div>
     </div>
   </div>

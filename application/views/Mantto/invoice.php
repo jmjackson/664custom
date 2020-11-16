@@ -27,12 +27,10 @@
                       <td><?php echo $mantto->Email; ?></td>
                     </tr>
                     <tr>
-                      <td> <b>Dirrecion</b> </td>
+                      <td> <b>Dirección</b> </td>
                       <td colspan="3"> <?php echo $mantto->Address ?> </td>
                     </tr>
                     <tr>
-                      <td> <b>Telefono</b> </td>
-                      <td> <?php echo $mantto->Telefono ?></td>
                       <td> <b>Celular</b> </td>
                       <td><?php echo $mantto->Cellphone ?></td>
                     </tr>
@@ -66,8 +64,8 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td colspan="2"> <b>Nota</b> </td>
-                      <td><?php echo $mantto->Notes; ?></td>
+                      <td colspan="2"> </td>
+                      <td></td>
                     </tr>
                   </table>
                 </div>
@@ -86,24 +84,24 @@
                   Servicio
                 </th>
                 <th>
-                  Desarrollo
+                  Costo
                 </th>
                 <th>
-                  Costo
+
                 </th>
 
               </tr></thead>
               <tbody>
 
                 <?php $ct=0; foreach ($MD as $m): ?>
+
                   <tr>
-                    <td><?php echo $m->Name; ?></td>
-                    <td><?php echo $m->Supplier; ?></td>
-                    <td><?php echo '$'.$m->Rate; ?></td>
+                    <td><?php echo $m->Services; ?></td>
+                    <td><?php echo '$'.number_format($m->Costo,'2','.',','); ?></td>
                    </tr>
-                <?php $ct+=$m->Rate; endforeach; ?>
-                <tr>
-                  <td colspan="2" class="text-right">Total</td>
+                <?php $ct+=$m->Costo; endforeach; ?>
+                <tr class="font-weight-bold">
+                  <td class="text-center">Total</td>
                   <td><?php echo '$'.number_format($ct,2,'.',','); ?></td>
                 </tr>
               </tbody>

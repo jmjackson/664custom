@@ -42,25 +42,27 @@ class Mantto extends CI_Controller{
 
   public function addMantto()
   {
+    $date=$this->input->post('DateMantto');
+    //var_dump($date);
+
+
     $data = array('Folio' =>$this->input->post('Folio'),
+    'Auto'=>$this->input->post('Auto'),
     'Name' =>$this->input->post('Name'),
     'Address'=>$this->input->post('Address'),
-    'City'=>$this->input->post('City'),
-    'Zip' =>$this->input->post('Zip'),
     'Email'=>$this->input->post('Email'),
-    'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'),
-    'DateMantto'=>date('Y-m-d',strtotime($this->input->post('DateMantto'))),
+    'DateMantto'=>$date,
     'Status'=>"InProcess",
+
       );
+
 
     $manttoid=$this->Mantto_model->AddMantto($data);
 
     if ($manttoid>0) {
       $dataCar = array(
         'Plate' =>$this->input->post('Plate'),
-        'Make'=>$this->input->post('Make'),
-        'Model'=>$this->input->post('Model'),
         'Color'=>$this->input->post('Color'),
         'Notes'=>$this->input->post('Notes'),
         'Year'=>$this->input->post('Year'),
@@ -72,7 +74,7 @@ class Mantto extends CI_Controller{
       echo "No se cargaron los archivos";
     }
     if ($this->Car_model->AddCar($dataCar)) {
-      redirect(base_url().'ManttoDetails/addDetails/'.$manttoid);
+      redirect(base_url().'Mantto/details/'.$manttoid);
     }
     else {
       echo "Hubo un error";
@@ -93,17 +95,13 @@ class Mantto extends CI_Controller{
     $Id=$this->input->post('Id');
 
     $dataMantto= array('Folio' =>$this->input->post('Folio'),
+    'Auto'=>$this->input->post('Auto'),
     'Name' =>$this->input->post('Name'),
     'Address'=>$this->input->post('Address'),
-    'City'=>$this->input->post('City'),
-    'Zip' =>$this->input->post('Zip'),
     'Email'=>$this->input->post('Email'),
-    'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'));
 
     $dataCar = array('Plate' =>$this->input->post('Plate'),
-    'Make'=>$this->input->post('Make'),
-    'Model'=>$this->input->post('Model'),
     'Color'=>$this->input->post('Color'),
     'Notes'=>$this->input->post('Notes'),
     'Year'=>$this->input->post('Year'));

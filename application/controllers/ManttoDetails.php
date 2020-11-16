@@ -43,30 +43,42 @@ class ManttoDetails extends CI_Controller{
     }
   }
 
-  public function addMantto()
+  public function Add()
   {
     $manttoId=$this->input->post('ManttoId');
-    $serviceId=$this->input->post('ServiceId');
-    $hours=$this->input->post('Hours');
-    $rate=$this->input->post('Rate');
-    $total=$hours*$rate;
-    $status="Pendiente";
-
+    $service=$this->input->post('Service');
+    $costo=$this->input->post('Costo');
+    $deposito=$this->input->post('Deposito');
+    $proveedor=$this->input->post('Proveedor');
+    $costoproveedor=$this->input->post('CostoProveedor');
     $datos = array(
       'ManttoId' =>$manttoId ,
-      'ServiceId'=>$serviceId,
-      'Hours'=>$hours,
-      'Rate'=>$rate,
-      'Total'=>$total,
-      'Status'=>$status,
+      'Services'=>$service,
+      'Costo'=>$costo,
+      'Deposito'=>$deposito,
+      'Proveedor'=>$proveedor,
+      'CostoProveedor'=>$costoproveedor,
+      'Ganancia'=>$costo-$costoproveedor,
     );
 
     if ($this->ManttoDetails_model->Add($datos)) {
-      redirect(base_url().'ManttoDetails/addDetails/'.$manttoId);
+      redirect(base_url().'Mantto/details/'.$manttoId);
     }
     else{
       echo "Tienes un error";
     }
+  }
+
+  public function AddProveedor(){
+    $manttoid=$this->input->post('ManttoId');
+    $proveedor=$this->input->post('Proveedor');
+    $costoproveedor=$this->input->post('CostoProveedor');
+
+    $datos = array(
+      'Proveedor'=>$proveedor,
+      'CostoProveedor'=>$costoproveedor,
+    );
+
   }
 
   public function delete()
@@ -75,7 +87,7 @@ class ManttoDetails extends CI_Controller{
     $id=$this->input->post('Id');
     if ($this->ManttoDetails_model->Delete($id))
     {
-      return redirect(base_url().'ManttoDetails/addDetails/'.$manttoId);
+      return redirect(base_url().'Mantto/details/'.$manttoId);
     }
   }
   public function finish($id='')
