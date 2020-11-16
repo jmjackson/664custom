@@ -86,10 +86,6 @@
                 <th>
                   Costo
                 </th>
-                <th>
-
-                </th>
-
               </tr></thead>
               <tbody>
 

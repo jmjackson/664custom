@@ -71,10 +71,11 @@
 
           </div>
             <div class="row justify-content-center">
-              <div class="col-md-5">
-                <a href="#" class="btn btn-primary " data-toggle="modal" data-target="#exampleServices">Servicio</a>
+              <div class="col-md-7">
+                <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleServices">Servicio</a>
                 <a href="<?php echo base_url() ?>Mantto/invoice/<?php echo $mantto->Id ?>" class="btn btn-default">Recibo</a>
-                <a href="#"  class="btn btn-default">Abono</a>
+                <a href="#"  class="btn btn-default" data-toggle="modal" data-target="#exampleAbono">Abono</a>
+                <a href="#" class="btn btn-default">Detalle Pago</a>
               </div>
             </div>
           </div>
@@ -186,6 +187,55 @@
                       <div class="form-group">
                         <label>Costo Proveedor</label>
                         <input type="text" name="CostoProveedor" class="form-control" placeholder="$0.00" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Guardar</button>
+                    </div>
+                  </div>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleAbono" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Abono</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url(); ?>" method="post">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Servicio </label>
+                        <input type="hidden" name="ManttoId" value="<?php echo $mantto->Id; ?>">
+                        <select class="form-control select" name="">
+                          <option value="">Seleccionar un Servicio</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Abono</label>
+                        <input type="text" name="Costo" class="form-control" placeholder="$0.00" value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Nota</label>
+                        <textarea name="name" rows="8" cols="80" class="form-control"></textarea>
                       </div>
                     </div>
                   </div>
