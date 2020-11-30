@@ -11,7 +11,6 @@ class Mantto extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model(array('Mantto_model','Car_model','ManttoDetails_model','Service_model'));
-
   }
 
   function index()
@@ -43,27 +42,24 @@ class Mantto extends CI_Controller{
 
   public function addMantto()
   {
-    $date=$this->input->post('DateMantto');
-    //var_dump($date);
-
-
     $data = array('Folio' =>$this->input->post('Folio'),
-    'Auto'=>$this->input->post('Auto'),
     'Name' =>$this->input->post('Name'),
     'Address'=>$this->input->post('Address'),
+    'City'=>$this->input->post('City'),
+    'Zip' =>$this->input->post('Zip'),
     'Email'=>$this->input->post('Email'),
+    'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'),
-    'DateMantto'=>$date,
+    'DateMantto'=>$this->input->post('DateMantto'),
     'Status'=>"InProcess",
-
       );
-
-
     $manttoid=$this->Mantto_model->AddMantto($data);
 
     if ($manttoid>0) {
       $dataCar = array(
         'Plate' =>$this->input->post('Plate'),
+        'Make'=>$this->input->post('Make'),
+        'Model'=>$this->input->post('Model'),
         'Color'=>$this->input->post('Color'),
         'Notes'=>$this->input->post('Notes'),
         'Year'=>$this->input->post('Year'),
@@ -75,7 +71,7 @@ class Mantto extends CI_Controller{
       echo "No se cargaron los archivos";
     }
     if ($this->Car_model->AddCar($dataCar)) {
-      redirect(base_url().'Mantto/details/'.$manttoid);
+      redirect(base_url().'ManttoDetails/addDetails/'.$manttoid);
     }
     else {
       echo "Hubo un error";
@@ -96,13 +92,17 @@ class Mantto extends CI_Controller{
     $Id=$this->input->post('Id');
 
     $dataMantto= array('Folio' =>$this->input->post('Folio'),
-    'Auto'=>$this->input->post('Auto'),
     'Name' =>$this->input->post('Name'),
     'Address'=>$this->input->post('Address'),
+    'City'=>$this->input->post('City'),
+    'Zip' =>$this->input->post('Zip'),
     'Email'=>$this->input->post('Email'),
+    'Telefono'=>$this->input->post('Telefono'),
     'Cellphone'=>$this->input->post('Cellphone'));
 
     $dataCar = array('Plate' =>$this->input->post('Plate'),
+    'Make'=>$this->input->post('Make'),
+    'Model'=>$this->input->post('Model'),
     'Color'=>$this->input->post('Color'),
     'Notes'=>$this->input->post('Notes'),
     'Year'=>$this->input->post('Year'));
@@ -119,17 +119,10 @@ class Mantto extends CI_Controller{
   }
   public function invoice($id='')
   {
-    $this->load->library('PdfGenerator');
     $mantto=$this->Mantto_model->GetManttoId($id);
-    //$data = array('title' =>"Recibo" , );
-    $datos = array('mantto' =>$mantto , 'MD'=>$this->ManttoDetails_model->GetServices($id));
-
-    $html=$this->load->view('Mantto/invoice',$datos,TRUE);
-    //$this->load->view('Mantto/invoice',$datos);
-    //
-
-     $file='comprobante';
-     $this->pdfgenerator->generate($html,$file,true,'Letter','portrait');
+    $data = array('title' =>"Recibo" , );
+    $datos = array('mantto' =>$mantto , );
+    $this->load->view('Mantto/invoice',$datos);
 
   }
 

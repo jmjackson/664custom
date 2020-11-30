@@ -4,16 +4,16 @@
       <div class="card">
         <div class="card-header">
           <div class="row justify-content-around">
-            <div class="col-md-7">
+            <div class="col-md-4">
               <div class="card">
                 <div class="card-header bg-default">
                   <h6 class="text-center text-white"><i class="fas fa-info-circle"></i> Información del Auto</h6>
                 </div>
                 <div class="card-body">
-                  <table class="table-sm table table-borderless">
+                  <table class="table-sm table-borderless">
                     <tr>
                       <td><b>Fecha</b></td>
-                      <td><?php echo  date('m-d-Y',strtotime($Car->DateMantto))?></td>
+                      <td><?php echo date('d-m-Y'); ?></td>
                       <td><b>Folio</b></td>
                       <td><?php echo $Car->Folio ; ?></td>
                     </tr>
@@ -46,7 +46,7 @@
         <div class="card-body">
           <div class="table-responsive">
             <h5><b>Servicios</b></h5>
-            <table class="table table-sm table-striped">
+            <table class="table table-sm">
               <tr>
                 <td><b>Servicio</td>
                 <td><b>Precio</td>

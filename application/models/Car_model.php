@@ -15,7 +15,7 @@ class Car_model extends CI_Model{
   }
   public function GetCarId($id)
   {
-    $this->db->select('c.*,m.Folio,m.Name Nombre,m.DateMantto,md.Hours,md.Rate,md.Total,s.Name');
+    $this->db->select('c.*,m.Folio,m.Name Nombre,md.Hours,md.Rate,md.Total,s.Name');
     $this->db->from('Car c');
     $this->db->join('Mantto m', 'c.ManttoId = m.Id', 'inner');
     $this->db->join('ManttoDetail md', 'm.Id = md.ManttoId', 'inner');
@@ -36,7 +36,7 @@ class Car_model extends CI_Model{
   public function GetCarbyId($id)
   {
     // code...
-    $this->db->select('c.*,m.Folio,m.Name,m.DateMantto');
+    $this->db->select('c.*,m.Folio,m.Name');
     $this->db->from('Car c');
     $this->db->join('Mantto m', 'c.ManttoId = m.Id', 'inner');
     $this->db->where('c.Id', $id);

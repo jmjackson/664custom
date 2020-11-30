@@ -23,23 +23,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php $countSupplier=0;$countRate=0; foreach ($Service as $s): ?>
+                  <?php foreach ($Service as $s): ?>
                     <tr>
                       <td><?php echo $s->ServiceName; ?></td>
                       <td><?php echo $s->SupplierName; ?></td>
-                      <td><?php echo "$".number_format($s->Rate,2,'.',','); ?></td>
-                      <td><?php echo "$".number_format($s->SupplierPrice,2,'.',','); ?></td>
-                      <td><?php echo "$".number_format($s->Rate-$s->SupplierPrice,2,'.',','); ?></td>
-                      <td><button type="button" class="btn btn-sm btn-icon btn-round btn-default"data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $s->mdId; ?>"><i class="fas fa-plus"></button></td>
+                      <td><?php echo "$".number_format($s->Total,2,'.',','); ?></td>
+                      <td><?php; ?></td>
+                      <td></td>
+                      <td><button type="button" class="btn btn-sm btn-icon btn-round btn-default"data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></button></td>
+
                     </tr>
-                  <?php $countRate+=$s->Rate;$countSupplier+=$s->SupplierPrice; endforeach; ?>
-                  <tr>
-                    <td colspan="2" class="font-weight-bold">Total</td>
-                    <td class="font-weight-bold"><?php echo "$".number_format($countRate,2,'.',',') ?></td>
-                    <td class="font-weight-bold"><?php echo "$".number_format($countSupplier,2,'.',',') ?></td>
-                    <td class="font-weight-bold"><?php echo "$".number_format($countRate-$countSupplier,2,'.',','); ?></td>
-                    <td></td>
-                  </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -54,26 +48,28 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Costo del Proveedor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar elementos</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url(); ?>ManttoDetails/AddSPrice" method="post">
+        <form>
+          <div class="row">
+          <div class="col-md-12">
           <div class="form-group">
-                       <div class="col-md-12">
-                           <input type="hidden" value="" name="MDetailId" id="MDId" class="form-control" required readonly />
-                       </div>
-                   </div>
-                  <div class="row">
-                    <div class="update ml-auto mr-auto">
-                      <button type="submit" class="btn btn-default btn-sm">Guardar</button>
-                    </div>
-                  </div>
-                </form>
+          <label>Precio Proveedor</label>
+          <input type="text" class="form-control" placeholder="" value="">
+          </div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="update ml-auto mr-auto">
+          <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+          </div>
+          </div>
+      </form>
       </div>
-
     </div>
   </div>
 </div>

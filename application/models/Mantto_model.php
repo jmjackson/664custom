@@ -11,7 +11,7 @@ class Mantto_model extends CI_Model{
 
   public function GetMantto()
   {
-    $this->db->select('Id,Folio,Name,Auto,Cellphone,DateMantto');
+    $this->db->select('Id,Folio,Name,Cellphone');
     return $this->db->get('Mantto')->result();
 
   }

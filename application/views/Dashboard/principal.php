@@ -42,10 +42,123 @@
                     </a>
                   </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="card card-stats bg-default">
+                    <div class="card-body text-white">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="fas fa-car text-warning"></i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-category text-white">Gestión</p>
+                            <p class="card-title">Autos</p><p>
+                          </p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="<?php echo base_url(); ?>Car">
+                      <div class="card-footer ">
+                        <hr>
+                        <div class="stats text-white">
+                          <i class="fa fa-arrow-right text-white"></i>
+                          Entrar
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="card card-stats bg-default">
+                    <div class="card-body text-white">
+                      <div class="row">
+                        <div class="col-4 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-support-17 text-warning"></i>
+                          </div>
+                        </div>
+                        <div class="col-8 col-md-8">
+                          <div class="numbers">
+                            <p class="card-category text-white">Gestión</p>
+                            <p class="card-title">Servicios</p><p>
+                          </p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="<?php echo base_url(); ?>Services">
+                    <div class="card-footer ">
+                      <hr>
+                      <div class="stats text-white">
+                        <i class="fa fa-arrow-right text-white"></i>
+                        Entrar
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="card card-stats bg-default">
+                    <div class="card-body text-white">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-paper text-warning"></i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-category text-white">Gestión</p>
+                            <p class="card-title">Proveedor</p><p>
+                          </p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="<?php echo base_url(); ?>Supplier">
+                      <div class="card-footer ">
+                        <hr>
+                        <div class="stats text-white">
+                          <i class="fa fa-arrow-right text-white"></i>
+                          Entrar
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="card card-stats bg-default">
+                    <div class="card-body text-white">
+                      <div class="row">
+                        <div class="col-5 col-md-4">
+                          <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-settings text-warning"></i>
+                          </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                          <div class="numbers">
+                            <p class="card-category text-white">Gestión</p>
+                            <p class="card-title">Mantto</p><p>
+                          </p></div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="<?php echo base_url(); ?>ServicesAdmin">
+                    <div class="card-footer ">
+                      <hr>
+                      <div class="stats text-white">
+                        <i class="fa fa-arrow-right text-white"></i>
+                        Entrar
+                      </div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
+          <div class="row">
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-sm" id="myTable">
+            <table class="table table-sm">
               <thead class=" text-default">
                 <tr>
                   <th>Nombre</th>
