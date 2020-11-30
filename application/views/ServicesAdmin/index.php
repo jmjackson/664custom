@@ -8,7 +8,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-sm">
+              <table class="table table-sm" id="myTable">
                 <thead>
                   <tr class="text-black-50">
                     <th>Folio</th>

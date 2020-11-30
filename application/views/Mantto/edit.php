@@ -24,10 +24,11 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="Name" class="form-control" placeholder="" value="<?php echo $mantto->Name; ?>" required>
-                  </div>
+                    <div class="form-group">
+                      <label>Auto</label>
+                      <input type="text" name="Auto" class="form-control" placeholder="" value="<?php echo $mantto->Auto; ?>" required>
+                    </div>
+
                   <div class="form-group">
                     <label for="exampleInputEmail1">Correo</label>
                     <input type="email" name="Email" class="form-control" placeholder="" value="<?php echo $mantto->Email; ?>">
@@ -43,30 +44,20 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="form-group">
-                    <label>Ciudad</label>
-                    <input type="text" name="City" class="form-control" placeholder="" value="<?php echo $mantto->City; ?>">
+                    <label>Nombre</label>
+                    <input type="text" name="Name" class="form-control" placeholder="" value="<?php echo $mantto->Name; ?>" required>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Codigo Postal</label>
-                    <input type="text" name="Zip" class="form-control" placeholder="" value="<?php echo $mantto->Zip; ?>">
-                  </div>
-                </div>
+
               </div>
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Telefono</label>
-                    <input type="text" name="Telefono" class="form-control" placeholder="" value="<?php echo $mantto->Telefono; ?>">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
                     <label>Celular</label>
-                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="<?php echo $mantto->Cellphone; ?>">
+                    <input type="text" name="Cellphone" class="form-control input-element" placeholder="" value="<?php echo $mantto->Cellphone; ?>">
                   </div>
                 </div>
               </div>
@@ -75,27 +66,17 @@
               <h5 class="text-center m-0">Datos del Auto</h5>
               <input type="hidden" name="CarId" value="<?php echo $mantto->carId ?>">
               <div class="row">
-                <div class="col-md-6 pr-1">
+                <div class="col-md-12 pr-1">
                   <div class="form-group">
                     <label>Placa</label>
                     <input type="text" name="Plate" class="form-control" placeholder="" value="<?php echo $mantto->Plate; ?>" required>
                   </div>
                 </div>
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Fabricante</label>
-                    <input type="text" name="Make" class="form-control" placeholder="" value="<?php echo $mantto->Make; ?>">
-                  </div>
-                </div>
+
               </div>
               <div class="row">
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Modelo</label>
-                    <input type="text" name="Model" class="form-control" placeholder="" value="<?php echo $mantto->Model; ?>" >
-                  </div>
-                </div>
-                <div class="col-md-6 pr-1">
+
+                <div class="col-md-12 pr-1">
                   <div class="form-group">
                     <label>Color</label>
                     <input type="text" name="Color" class="form-control" placeholder="" value="<?php echo $mantto->Color; ?>">
@@ -103,10 +84,10 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 pr-1">
+                <div class="col-md-12 pr-1">
                   <div class="form-group">
                     <label>Año</label>
-                    <input type="text" name="Year" class="form-control" placeholder="" value="<?php echo $mantto->Year; ?>" >
+                    <input type="text" name="Year" class="form-control input-date" placeholder="" value="<?php echo $mantto->Year; ?>" >
                   </div>
                 </div>
               </div>

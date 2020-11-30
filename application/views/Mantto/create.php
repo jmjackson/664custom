@@ -18,14 +18,15 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Fecha</label>
-                          <input type="text" name="DateMantto" class="form-control" value="<?php echo date('m-d-Y'); ?>" readonly>
+                          <input type="text" name="" value="<?php echo date('m-d-Y') ?>" class="form-control" readonly>
+                          <input type="hidden" name="DateMantto" class="form-control" value="<?php echo date('Y-m-d'); ?>" readonly>
                       </div>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="Name" class="form-control" placeholder="" value="" required>
+                    <label>Auto</label>
+                    <input type="text" name="Auto" class="form-control" placeholder="" value="" required>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Correo</label>
@@ -36,22 +37,16 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label>Ciudad</label>
-                    <input type="text" name="City" class="form-control" placeholder="" value="">
+                    <label>Nombre </label>
+                    <input type="text" name="Name" class="form-control" placeholder="" value="">
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Telefono</label>
-                    <input type="text" name="Telefono" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label>Celular</label>
-                    <input type="text" name="Cellphone" class="form-control" placeholder="" value="" required >
+                    <input type="text" name="Cellphone" class="form-control input-phone" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
@@ -67,30 +62,16 @@
                 </div>
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
-                    <label>Fabricante</label>
-                    <input type="text" name="Make" class="form-control" placeholder="" value="">
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
-                    <label>Modelo</label>
-                    <input type="text" name="Model" class="form-control" placeholder="" value="" >
-                  </div>
-                </div>
-                <div class="col-md-6 pr-1">
-                  <div class="form-group">
                     <label>Color</label>
                     <input type="text" name="Color" class="form-control" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 pr-1">
+                <div class="col-md-12 pr-1">
                   <div class="form-group">
                     <label>Año</label>
-                    <input type="text" name="Year" class="form-control" placeholder="" value="" required >
+                    <input type="text" name="Year" class="form-control input-date" placeholder="" value="" required >
                   </div>
                 </div>
               </div>
