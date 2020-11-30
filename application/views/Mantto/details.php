@@ -75,7 +75,7 @@
                 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleServices">Servicio</a>
                 <a href="<?php echo base_url() ?>Mantto/invoice/<?php echo $mantto->Id ?>" class="btn btn-default">Recibo</a>
                 <a href="#"  class="btn btn-default" data-toggle="modal" data-target="#exampleAbono">Abono</a>
-                <a href="#" class="btn btn-default">Detalle Pago</a>
+                <a href="<?php echo base_url(); ?>Mantto/InvoiceDetails/<?php echo $mantto->Id; ?>" class="btn btn-default">Detalle Pago</a>
               </div>
             </div>
           </div>

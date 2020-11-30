@@ -128,7 +128,7 @@ class Mantto extends CI_Controller{
     //$this->load->view('Mantto/invoice',$datos);
     //
 
-     $file='comprobante';
+     $file='comprobante_'.$mantto->Folio;
      $this->pdfgenerator->generate($html,$file,true,'Letter','portrait');
 
   }
@@ -160,8 +160,6 @@ class Mantto extends CI_Controller{
       echo "Error en su Borrar los datos";
     }
   }
-
-
   public function details($id)
   {
     $datos = array('title' =>"Detalle de Recibo" , );
@@ -170,6 +168,15 @@ class Mantto extends CI_Controller{
     $this->load->view('Mantto/details', $data);
     $this->load->view('Layouts/footer');
 
+  }
+
+  public function InvoiceDetails($id)
+  {
+    $datos = array('title' =>"Detalle de Recibo" , );
+      $data = array('mantto' =>$this->Mantto_model->GetManttoId($id),'MD'=>$this->ManttoDetails_model->GetServices($id));
+    $this->load->view('Layouts/head', $datos);
+    $this->load->view('Mantto/InvoiceDetail',$data);
+    $this->load->view('Layouts/footer');
   }
 
 }
