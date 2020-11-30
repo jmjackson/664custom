@@ -67,14 +67,6 @@
                        </div>
                    </div>
                   <div class="row">
-                    <div class="col-md-10 pr-1">
-                      <div class="form-group">
-                        <label>Precio Proveedor</label>
-                        <input type="text" class="form-control" placeholder="$0.00" value="" name="SupplierPrice">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
                     <div class="update ml-auto mr-auto">
                       <button type="submit" class="btn btn-default btn-sm">Guardar</button>
                     </div>

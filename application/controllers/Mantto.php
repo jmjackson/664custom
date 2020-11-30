@@ -11,6 +11,7 @@ class Mantto extends CI_Controller{
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model(array('Mantto_model','Car_model','ManttoDetails_model','Service_model'));
+
   }
 
   function index()
@@ -118,12 +119,18 @@ class Mantto extends CI_Controller{
   }
   public function invoice($id='')
   {
+    $this->load->library('PdfGenerator');
     $mantto=$this->Mantto_model->GetManttoId($id);
-    $data = array('title' =>"Recibo" , );
+    //$data = array('title' =>"Recibo" , );
     $datos = array('mantto' =>$mantto , 'MD'=>$this->ManttoDetails_model->GetServices($id));
-    $this->load->view('Layouts/head', $data);
-    $this->load->view('Mantto/invoice',$datos);
-    $this->load->view('Layouts/footer');
+
+    $html=$this->load->view('Mantto/invoice',$datos,TRUE);
+    //$this->load->view('Mantto/invoice',$datos);
+    //
+
+     $file='comprobante';
+     $this->pdfgenerator->generate($html,$file,true,'Letter','portrait');
+
   }
 
   public function delete($id='')

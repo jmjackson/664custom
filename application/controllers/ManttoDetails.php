@@ -11,40 +11,11 @@ class ManttoDetails extends CI_Controller{
     'ServiceAdmin_model'));
   }
 
-
-
-  public function addDetails($id='')
-  {
-    $Mantto=$this->Mantto_model->GetManttoId($id);
-
-    if ($Mantto->Status=="InProcess") {
-      $datos = array(
-        'services' =>$this->Service_model->GetServices() ,
-        'Mantto'=>$Mantto,
-        'MD'=>$this->ManttoDetails_model->GetServices($id),);
-        $data = array('title' =>"Agregar Servicios" , );
-        $this->load->view('Layouts/head', $data);
-        $this->load->view('ManttoDetails/add',$datos);
-        $this->load->view('Layouts/footer');
-    }
-    else{
-      echo "Tienes un Error";
-    }
-  }
-
-  public function AddSPrice()
-  {
-    $mdId=$this->input->post('MDetailId');
-    $SupplierPrice=$this->input->post('SupplierPrice');
-    $md=$this->ManttoDetails_model->GetMD($mdId);
-    $data = array('SupplierPrice' =>$SupplierPrice , );
-    if ($this->ServiceAdmin_model->UpdateCost($mdId,$data)) {
-      redirect(basE_url().'ServicesAdmin/details/'.$md->ManttoId);
-    }
-  }
-
   public function Add()
   {
+    $costo=0;
+    $costoproveedor=0;
+    $deposito=0;
     $manttoId=$this->input->post('ManttoId');
     $service=$this->input->post('Service');
     $costo=$this->input->post('Costo');
@@ -59,6 +30,7 @@ class ManttoDetails extends CI_Controller{
       'Proveedor'=>$proveedor,
       'CostoProveedor'=>$costoproveedor,
       'Ganancia'=>$costo-$costoproveedor,
+      'Pagado'=>$costo-$deposito,
     );
 
     if ($this->ManttoDetails_model->Add($datos)) {
@@ -69,40 +41,88 @@ class ManttoDetails extends CI_Controller{
     }
   }
 
-  public function AddProveedor(){
-    $manttoid=$this->input->post('ManttoId');
+ public function Abono()
+ {
+   $manttoId=$this->input->post('ManttoId');
+   $manttoDetailsId=$this->input->post('ManttoDetailId');
+   $abono=$this->input->post('Abono');
+   $nota=$this->input->post('Nota');
+
+   $datos = array(
+     'CostoAbono' =>$abono ,
+     'Nota'=>$nota,
+     'ManttoDetailId'=>$manttoDetailsId);
+
+    $manttodetail=$this->ManttoDetails_model->GetMD($manttoDetailsId);
+    $this->ManttoDetails_model->AddAbono($datos);
+
+    $pagado=$manttodetail->Pagado;
+
+    $data = array(
+      'Pagado' =>$pagado+$abono
+       , );
+       if ($this->ManttoDetails_model->Update($manttoDetailsId,$data)) {
+         redirect(base_url().'Mantto/details/'.$manttoId);
+       }
+       else{
+
+       }
+
+ }
+
+  public function delete($id)
+  {
+    $manttoId=$this->input->post('ManttoId');
+
+    $abonos=$this->ManttoDetails_model->GetAbonos($id);
+    $mantto=$this->ManttoDetails_model->GetMD($id);
+    if (isset($abonos)) {
+      foreach ($abonos as $a) {
+        $this->ManttoDetails_model->DeleteAbono($a->Id);
+      }
+    }
+
+
+    if ($this->ManttoDetails_model->Delete($id))
+    {
+      return redirect(base_url().'Mantto/details/'.$mantto->ManttoId);
+    }
+  }
+
+  public function Edit($id='')
+  {
+    $data = array('title' =>"Actualizar" , );
+
+    $datos = array('MD' => $this->ManttoDetails_model->GetMD($id), );
+    $this->load->view('Layouts/head.php', $data);
+    $this->load->view('ManttoDetails/edit',$datos);
+    $this->load->view('Layouts/footer.php');
+  }
+
+  public function Update()
+  {
+    $costo=0;
+    $costoproveedor=0;
+    $id=$this->input->post('Id');
+    $manttoId=$this->input->post('ManttoId');
+    $service=$this->input->post('Service');
+    $costo=$this->input->post('Costo');
+    $deposito=$this->input->post('Deposito');
     $proveedor=$this->input->post('Proveedor');
     $costoproveedor=$this->input->post('CostoProveedor');
 
     $datos = array(
+      'Services' =>$service ,
+      'Costo'=>$costo,
+      'Deposito'=>$deposito,
       'Proveedor'=>$proveedor,
       'CostoProveedor'=>$costoproveedor,
-    );
+      'Ganancia'=>$costo-$costoproveedor,
+     );
 
-  }
-
-  public function delete()
-  {
-    $manttoId=$this->input->post('ManttoId');
-    $id=$this->input->post('Id');
-    if ($this->ManttoDetails_model->Delete($id))
-    {
-      return redirect(base_url().'Mantto/details/'.$manttoId);
-    }
-  }
-  public function finish($id='')
-  {
-      $mantto=$this->Mantto_model->GetManttoId($id);
-
-      $datos = array(
-        'Status' =>"Done" , );
-        if ($this->Mantto_model->UpdateMantto($id,$datos)) {
-          redirect(base_url()."Mantto/invoice/".$id);
-        }
-        else{
-          echo "Tienes un Error";
-        }
-
+     if ($this->ManttoDetails_model->update($id,$datos)) {
+       return redirect(base_url().'Mantto/details/'.$manttoId);
+     }
   }
 
 }

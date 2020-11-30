@@ -92,7 +92,8 @@
                   <th>Deposito</th>
                   <th>Proveedor</th>
                   <th>Ganancia</th>
-                  <th></th>
+                  <th>Pagado</th>
+                  <th>Acción</th>
               </tr>
             </thead>
               <tbody>
@@ -104,14 +105,11 @@
                     <td><?php echo '$'.number_format($m->Deposito,'2','.',','); ?></td>
                     <td><?php echo '$'.number_format($m->CostoProveedor,'2','.',','); ?></td>
                     <td><?php echo '$'.number_format($m->Ganancia,'2','.',','); ?></td>
+                    <td><?php echo '$'.number_format($m->Pagado,'2','.',','); ?></td>
                     <td>
 
-                      <a href="#" class="btn btn-round btn-icon btn-warning pull-left ml-1"><i class="fas fa-pen-alt"></i> </a>
-                      <form class="" action="<?php echo base_url(); ?>ManttoDetails/delete" method="post">
-                        <input type="hidden" name="ManttoId" value="<?php echo $m->ManttoId; ?>">
-                        <input type="hidden" name="Id" value="<?php echo $m->Id; ?>">
-                        <button type="submit" name="button" class="btn btn-round btn-icon pull-left ml-1 btn-danger"><i class="fas fa-trash-alt"></i> </button>
-                      </form>
+                      <a href="<?php echo base_url(); ?>ManttoDetails/Edit/<?php echo $m->Id; ?>" class="btn btn-round btn-icon btn-sm btn-warning ml-1"><i class="fas fa-pen-alt"></i> </a>
+                      <a href="<?php echo base_url(); ?>ManttoDetails/delete/<?php echo $m->Id; ?>" class="btn btn-round btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i> </a>
                     </td>
                   </tr>
 
@@ -154,7 +152,7 @@
                       <div class="form-group">
                         <label>Nombre del Servicio</label>
                         <input type="hidden" name="ManttoId" value="<?php echo $mantto->Id; ?>">
-                        <input type="text" name="Service" class="form-control"  value="">
+                        <input type="text" name="Service" class="form-control"  value="" required>
                       </div>
                     </div>
                   </div>
@@ -162,7 +160,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Costo</label>
-                        <input type="text" name="Costo" class="form-control" placeholder="$0.00" value="">
+                        <input type="text" name="Costo" class="form-control" placeholder="$0.00" value="" required>
                       </div>
                     </div>
                   </div>
@@ -170,7 +168,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Deposito</label>
-                        <input type="text" name="Deposito" class="form-control" placeholder="$0.00" value="">
+                        <input type="text" name="Deposito" class="form-control" placeholder="$0.00" value="" required>
                       </div>
                     </div>
                   </div>
@@ -211,14 +209,17 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url(); ?>" method="post">
+        <form action="<?php echo base_url(); ?>/ManttoDetails/Abono" method="post">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Servicio </label>
                         <input type="hidden" name="ManttoId" value="<?php echo $mantto->Id; ?>">
-                        <select class="form-control select" name="">
+                        <select class="form-control select" name="ManttoDetailId">
                           <option value="">Seleccionar un Servicio</option>
+                          <?php foreach ($MD as $m): ?>
+                            <option value="<?php echo $m->Id ?>"><?php echo $m->Services; ?></option>
+                          <?php endforeach; ?>
                         </select>
                       </div>
                     </div>
@@ -227,7 +228,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Abono</label>
-                        <input type="text" name="Costo" class="form-control" placeholder="$0.00" value="">
+                        <input type="text" name="Abono" class="form-control" placeholder="$0.00" value="">
                       </div>
                     </div>
                   </div>
@@ -235,7 +236,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Nota</label>
-                        <textarea name="name" rows="8" cols="80" class="form-control"></textarea>
+                        <textarea name="Nota" rows="8" cols="80" class="form-control"></textarea>
                       </div>
                     </div>
                   </div>
