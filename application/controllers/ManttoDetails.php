@@ -125,4 +125,6 @@ class ManttoDetails extends CI_Controller{
      }
   }
 
+  
+
 }

@@ -173,7 +173,8 @@ class Mantto extends CI_Controller{
   public function InvoiceDetails($id)
   {
     $datos = array('title' =>"Detalle de Recibo" , );
-      $data = array('mantto' =>$this->Mantto_model->GetManttoId($id),'MD'=>$this->ManttoDetails_model->GetServices($id));
+      $data = array('mantto' =>$this->Mantto_model->GetManttoId($id),'MD'=>$this->ManttoDetails_model->GetServices($id),
+    'Abonos'=>$this->ManttoDetails_model->GetAbonosAll($id));
     $this->load->view('Layouts/head', $datos);
     $this->load->view('Mantto/InvoiceDetail',$data);
     $this->load->view('Layouts/footer');

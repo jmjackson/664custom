@@ -58,4 +58,14 @@ class ManttoDetails_model extends CI_Model{
     $this->db->where('Id', $id);
     return $this->db->delete('Abono');
   }
+
+  public function GetAbonosAll($id)
+  {
+    $this->db->select('a.*,md.Services,m.Id mId');
+    $this->db->from('Abono a');
+    $this->db->join('ManttoDetail md', 'a.ManttoDetailId = md.Id');
+    $this->db->join('Mantto m', 'md.ManttoId = m.Id');
+    $this->db->where('m.Id', $id);
+    return $this->db->get()->result();
+  }
 }
