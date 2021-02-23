@@ -11,7 +11,7 @@
       font-size: 10pt;
     }
       div>img{
-        margin-left: 45%;
+        margin-left: 41%;
       }
       .left{
         float:left;
@@ -67,11 +67,32 @@
   background-color: #4CAF50;
   color: white;
 }
+.direccion{
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.direccion > p{
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 8pt;
+}
+.Note{
+  margin-top: 1em;
+  
+}
     </style>
   </head>
   <body>
     <div class="">
       <img src="<?php echo base_url(); ?>resources/images/logox.png" alt="" width="130" height="110">
+    </div>
+    <div class="direccion">
+      <p>Martires de Chicago 5753</p>
+      <p>entre Bucareli y Ramon Guzman</p>
+      <p>Obrera 2da. Sección C.P. 22624</p>
+      <p>Tijuana, B.C.</p>
     </div>
     <div class="rowhead">
       <div class="left">
@@ -128,23 +149,29 @@
     <div class="detail">
       <table id="customers">
         <tr>
-          <td colspan="2">Detalles de Servicios</td>
+          <td colspan="3">Detalles de Servicios</td>
         </tr>
         <tr>
           <td><b>Servicio</b></td>
+          <td><b>Deposito</b> </td>
           <td><b>Precio</b></td>
         </tr>
         <?php $total=0; foreach ($MD as $m): ?>
           <tr>
             <td><?php echo $m->Services; ?></td>
+            <td><?php echo $m->Deposito; ?></td>
             <td><?php echo '$'.number_format($m->Costo,2,'.',','); ?></td>
           </tr>
         <?php $total+=$m->Costo; endforeach; ?>
         <tr>
           <td>Total</td>
+          <td></td>
           <td><?php echo '$'.number_format($total,2,'.',','); ?></td>
         </tr>
       </table>
+    </div>
+    <div class="Note">
+      <p>Nota : <?php echo $mantto->InvoiceNote; ?></p>
     </div>
   </body>
 </html>

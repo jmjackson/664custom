@@ -95,7 +95,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Notas</label>
-                    <textarea class="form-control textarea" name="Notes" value="<?php echo $mantto->Notes; ?>" ></textarea>
+                    <textarea class="form-control textarea" name="Notes" value="" ><?php echo $mantto->Notes; ?></textarea>
                   </div>
                 </div>
               </div>

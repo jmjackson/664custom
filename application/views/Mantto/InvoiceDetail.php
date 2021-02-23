@@ -32,12 +32,17 @@
             <tr>
               <th>Servicio</th>
               <th>Costo</th>
+              <th>Deposito</th>
               <th>Pagado</th>
             </tr>
             <?php foreach ($MD as $m): ?>
-              <td><?php echo $m->Services; ?></td>
-              <td><?php echo $m->Costo; ?></td>
-              <td><?php echo $m->Pagado; ?></td>
+              <tr>
+                <td><?php echo $m->Services; ?></td>
+                <td><?php echo $m->Costo; ?></td>
+                <td><?php echo $m->Deposito; ?></td>
+                <td><?php echo $m->Pagado; ?></td>
+              </tr>
+
             <?php endforeach; ?>
           </table>
           <hr>

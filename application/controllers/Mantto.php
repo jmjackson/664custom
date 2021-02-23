@@ -126,7 +126,7 @@ class Mantto extends CI_Controller{
 
     $html=$this->load->view('Mantto/invoice',$datos,TRUE);
     //$this->load->view('Mantto/invoice',$datos);
-    //
+
 
      $file='comprobante_'.$mantto->Folio;
      $this->pdfgenerator->generate($html,$file,true,'Letter','portrait');
@@ -180,4 +180,14 @@ class Mantto extends CI_Controller{
     $this->load->view('Layouts/footer');
   }
 
+  public function AddNote()
+  {
+    $manttoId=$this->input->post('ManttoId');
+    $InvoiceNote=$this->input->post('InvoiceNote');
+
+    $datos = array('InvoiceNote' =>$InvoiceNote , );
+    if ($this->Mantto_model->UpdateMantto($manttoId,$datos)) {
+      redirect(base_url().'Mantto/details/'.$manttoId);
+    }
+  }
 }

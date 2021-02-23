@@ -70,12 +70,13 @@
               <a href="<?php echo base_url(); ?>Mantto/delete/<?php echo $mantto->Id; ?>" class="btn btn-sm btn-round btn-outline-danger btn-icon ml-2" title="Eliminar"><i class="fas fa-trash-alt"></i> </a>
 
           </div>
-            <div class="row justify-content-center">
+          <div class="row justify-content-center">
               <div class="col-md-7">
                 <a href="#" class="btn btn-default" data-toggle="modal" data-target="#exampleServices">Servicio</a>
                 <a href="<?php echo base_url() ?>Mantto/invoice/<?php echo $mantto->Id ?>" class="btn btn-default">Recibo</a>
                 <a href="#"  class="btn btn-default" data-toggle="modal" data-target="#exampleAbono">Abono</a>
                 <a href="<?php echo base_url(); ?>Mantto/InvoiceDetails/<?php echo $mantto->Id; ?>" class="btn btn-default">Detalle Pago</a>
+                <a href="#" data-toggle="modal" data-target="#exampleNota" class="btn btn-default">Nota en Recibo</a>
               </div>
             </div>
           </div>
@@ -92,10 +93,9 @@
                   <th>Deposito</th>
                   <th>Proveedor</th>
                   <th>Ganancia</th>
-                  <th>Pagado</th>
                   <th>Acción</th>
-              </tr>
-            </thead>
+                </tr>
+              </thead>
               <tbody>
                 <?php $costo=0;$deposito=0; $costop=0;$ganancia=0; foreach ($MD as $m): ?>
                   <tr>
@@ -105,7 +105,6 @@
                     <td><?php echo '$'.number_format($m->Deposito,'2','.',','); ?></td>
                     <td><?php echo '$'.number_format($m->CostoProveedor,'2','.',','); ?></td>
                     <td><?php echo '$'.number_format($m->Ganancia,'2','.',','); ?></td>
-                    <td><?php echo '$'.number_format($m->Pagado,'2','.',','); ?></td>
                     <td>
 
                       <a href="<?php echo base_url(); ?>ManttoDetails/Edit/<?php echo $m->Id; ?>" class="btn btn-round btn-icon btn-sm btn-warning ml-1"><i class="fas fa-pen-alt"></i> </a>
@@ -126,9 +125,14 @@
                   <td><?php echo '$'.number_format($ganancia,'2','.',','); ?></td>
                   <td></td>
                 </tr>
-              </tbody>
+            </tbody>
             </table>
           </div>
+        </div>
+        <div class="card-body">
+          <h3>Notas del Auto</h3>
+          <hr>
+          <p><?php echo $mantto->Notes ?></p>
         </div>
       </div>
     </div>
@@ -237,6 +241,42 @@
                       <div class="form-group">
                         <label>Nota</label>
                         <textarea name="Nota" rows="8" cols="80" class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="update ml-auto mr-auto">
+                      <button type="submit" class="btn btn-primary btn-round">Guardar</button>
+                    </div>
+                  </div>
+                </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleNota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nota en Recibo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url(); ?>Mantto/AddNote" method="post">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <input type="hidden" name="ManttoId" value="<?php echo $mantto->Id; ?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Nota</label>
+                        <textarea name="InvoiceNote" rows="8" cols="80" class="form-control"><?php echo $mantto->InvoiceNote; ?></textarea>
                       </div>
                     </div>
                   </div>
